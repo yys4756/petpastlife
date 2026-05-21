@@ -171,13 +171,9 @@ export default function HomePage() {
         </div>
 
         <p className="footer-note">
-          One reading per day · For entertainment only
+          For entertainment only · Free forever
         </p>
         <p className="footer-note" style={{ marginTop: "0.5rem" }}>
-          <a href="/horoscope" style={{ color: "rgba(255,255,255,0.5)" }}>Horoscope</a>
-          {" · "}
-          <a href="/blog" style={{ color: "rgba(255,255,255,0.5)" }}>Blog</a>
-          {" · "}
           <a href="/about" style={{ color: "rgba(255,255,255,0.5)" }}>About</a>
           {" · "}
           <a href="/privacy" style={{ color: "rgba(255,255,255,0.5)" }}>Privacy</a>

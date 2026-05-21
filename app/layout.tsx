@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit, Italiana } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
+import { NavBar } from "@/components/NavBar";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -51,6 +52,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body suppressHydrationWarning>
+        <NavBar />
         {children}
         <Analytics />
         <script
