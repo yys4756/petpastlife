@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Outfit, Italiana } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -49,7 +50,10 @@ export default function RootLayout({
       className={`${outfit.variable} ${italiana.variable}`}
       suppressHydrationWarning
     >
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
