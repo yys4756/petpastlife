@@ -53,6 +53,33 @@ export default function RootLayout({
       <body suppressHydrationWarning>
         {children}
         <Analytics />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@graph": [
+                {
+                  "@type": "WebSite",
+                  "@id": `${BASE}/#website`,
+                  url: BASE,
+                  name: "Pet Past Life",
+                  description: "Upload a photo of your pet and reveal who they were in a past life.",
+                },
+                {
+                  "@type": "WebApplication",
+                  "@id": `${BASE}/#app`,
+                  name: "Pet Past Life",
+                  url: BASE,
+                  applicationCategory: "EntertainmentApplication",
+                  operatingSystem: "Web",
+                  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+                  description: "AI-powered past life story generator for pets.",
+                },
+              ],
+            }),
+          }}
+        />
       </body>
     </html>
   );

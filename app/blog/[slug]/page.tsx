@@ -24,6 +24,25 @@ export default async function PostPage({ params }: Props) {
   const post = getPost(slug);
   if (!post) notFound();
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt,
+    datePublished: new Date(post.date).toISOString(),
+    dateModified: new Date(post.date).toISOString(),
+    author: { "@type": "Organization", name: "Pet Past Life" },
+    publisher: {
+      "@type": "Organization",
+      name: "Pet Past Life",
+      url: "https://petpastlife.vercel.app",
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://petpastlife.vercel.app/blog/${post.slug}`,
+    },
+  };
+
   return (
     <main className="page-wrap" style={{ alignItems: "flex-start", paddingTop: "4rem" }}>
       <div style={{ width: "100%", maxWidth: "42rem", margin: "0 auto" }}>
@@ -90,6 +109,10 @@ export default async function PostPage({ params }: Props) {
           </Link>
         </p>
       </div>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
     </main>
   );
 }
