@@ -16,15 +16,26 @@ const italiana = Italiana({
   display: "swap",
 });
 
+const BASE = "https://petpastlife.vercel.app";
+
 export const metadata: Metadata = {
   title: "Pet Past Life — Discover who your pet was before",
   description:
-    "Upload a photo of your pet and reveal who they were in a past life.",
+    "Upload a photo of your pet and reveal who they were in a past life. Powered by AI.",
+  metadataBase: new URL(BASE),
   openGraph: {
     title: "Pet Past Life",
     description: "Who was your pet in a past life?",
     type: "website",
+    url: BASE,
+    siteName: "Pet Past Life",
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Pet Past Life",
+    description: "Who was your pet in a past life?",
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({
