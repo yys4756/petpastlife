@@ -122,7 +122,7 @@ export default function HomePage() {
         <div className="card">
           <header className="card-header">
             <div style={{ fontSize: "2.5rem", lineHeight: 1, marginBottom: "1rem" }}>🐾</div>
-            <h1 className="title" style={{ fontSize: "1rem" }}>Your Pet's Past Life</h1>
+            <h1 className="title" style={{ fontSize: "2rem" }}>Your Pet's Past Life</h1>
             <p className="subtitle">
               Upload a photo to discover who your pet was before.
             </p>
