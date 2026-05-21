@@ -172,6 +172,13 @@ export default function HomePage() {
         <p className="footer-note">
           One reading per day · For entertainment only
         </p>
+        <p className="footer-note" style={{ marginTop: "0.5rem" }}>
+          <a href="/about" style={{ color: "rgba(255,255,255,0.5)" }}>About</a>
+          {" · "}
+          <a href="/privacy" style={{ color: "rgba(255,255,255,0.5)" }}>Privacy</a>
+          {" · "}
+          <a href="/terms" style={{ color: "rgba(255,255,255,0.5)" }}>Terms</a>
+        </p>
       </div>
     </main>
   );
