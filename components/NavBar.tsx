@@ -23,16 +23,8 @@ export function NavBar() {
       margin: "0 auto",
     }}>
       {/* Logo */}
-      <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.5rem" }}>
-        <span style={{ fontSize: "1.25rem" }}>🐾</span>
-        <span style={{
-          fontFamily: "var(--font-italiana), Georgia, serif",
-          fontSize: "1.1rem",
-          color: "white",
-          letterSpacing: "0.02em",
-        }}>
-          PetPastLife
-        </span>
+      <Link href="/" style={{ textDecoration: "none" }}>
+        <span style={{ fontSize: "1.5rem" }}>🐾</span>
       </Link>
 
       {/* Links */}
