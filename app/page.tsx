@@ -121,7 +121,8 @@ export default function HomePage() {
       <div className="page-inner fade-in">
         <div className="card">
           <header className="card-header">
-            <h1 className="title">Pet Past Life</h1>
+            <div style={{ fontSize: "2.5rem", lineHeight: 1, marginBottom: "0.5rem" }}>🐾</div>
+            <h1 className="title">Your Pet's Past Life</h1>
             <p className="subtitle">
               Upload a photo to discover who your pet was before.
             </p>

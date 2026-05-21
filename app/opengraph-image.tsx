@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Pet Past Life — Discover who your pet was before";
+export const alt = "Your Pet's Past Life — Discover who your pet was before";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -46,7 +46,7 @@ export default function OgImage() {
           {/* Title */}
           <div
             style={{
-              fontSize: 88,
+              fontSize: 80,
               color: "#1F2937",
               textAlign: "center",
               lineHeight: 1,
@@ -54,7 +54,7 @@ export default function OgImage() {
               display: "flex",
             }}
           >
-            Pet Past Life
+            Your Pet&apos;s Past Life
           </div>
 
           {/* Tagline */}
