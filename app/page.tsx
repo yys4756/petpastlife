@@ -174,6 +174,8 @@ export default function HomePage() {
           One reading per day · For entertainment only
         </p>
         <p className="footer-note" style={{ marginTop: "0.5rem" }}>
+          <a href="/horoscope" style={{ color: "rgba(255,255,255,0.5)" }}>Horoscope</a>
+          {" · "}
           <a href="/blog" style={{ color: "rgba(255,255,255,0.5)" }}>Blog</a>
           {" · "}
           <a href="/about" style={{ color: "rgba(255,255,255,0.5)" }}>About</a>
