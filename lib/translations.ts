@@ -11,7 +11,7 @@ export const translations = {
     blog: { en: "Blog", ko: "블로그" },
   },
   home: {
-    title: { en: "Your Pet's Past Life", ko: "반려동물의 전생" },
+    title: { en: "Your Pet's Past Life", ko: "내 반려동물의 전생은?" },
     subtitle: {
       en: "Upload a photo to discover who your pet was before.",
       ko: "사진을 업로드하여 반려동물이 전생에 누구였는지 알아보세요.",
