@@ -4,10 +4,24 @@ import { cookies } from "next/headers";
 import { posts } from "./_posts";
 import { translations, type Lang } from "@/lib/translations";
 
+const BASE = "https://petpastlife.vercel.app";
+
 export const metadata: Metadata = {
   title: "Blog — Pet Past Life",
   description:
     "Stories, science, and history about pets, past lives, and the ancient bond between animals and humans.",
+  alternates: { canonical: `${BASE}/blog` },
+  openGraph: {
+    title: "Blog — Pet Past Life",
+    description: "Stories, science, and history about pets, past lives, and the ancient bond between animals and humans.",
+    url: `${BASE}/blog`,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Blog — Pet Past Life",
+    description: "Stories, science, and history about pets, past lives, and the ancient bond between animals and humans.",
+  },
 };
 
 export default async function BlogPage() {

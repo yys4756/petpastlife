@@ -2,10 +2,24 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { translations, type Lang } from "@/lib/translations";
 
+const BASE = "https://petpastlife.vercel.app";
+
 export const metadata: Metadata = {
   title: "About — Pet Past Life",
   description:
     "Learn how Pet Past Life uses AI to generate fun fictional past-life stories for your pet.",
+  alternates: { canonical: `${BASE}/about` },
+  openGraph: {
+    title: "About — Pet Past Life",
+    description: "Learn how Pet Past Life uses AI to generate fun fictional past-life stories for your pet.",
+    url: `${BASE}/about`,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About — Pet Past Life",
+    description: "Learn how Pet Past Life uses AI to generate fun fictional past-life stories for your pet.",
+  },
 };
 
 export default async function AboutPage() {

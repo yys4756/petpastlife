@@ -2,8 +2,20 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { translations, type Lang } from "@/lib/translations";
 
+const BASE = "https://petpastlife.vercel.app";
+
 export const metadata: Metadata = {
   title: "Terms of Service — Pet Past Life",
+  description:
+    "Pet Past Life terms of service. Free entertainment tool — all stories are fictional AI-generated content.",
+  alternates: { canonical: `${BASE}/terms` },
+  openGraph: {
+    title: "Terms of Service — Pet Past Life",
+    description: "All stories are fictional AI-generated content for entertainment only.",
+    url: `${BASE}/terms`,
+    type: "website",
+  },
+  robots: { index: false, follow: true },
 };
 
 export default async function TermsPage() {

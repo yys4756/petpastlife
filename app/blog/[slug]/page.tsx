@@ -5,6 +5,8 @@ import { cookies } from "next/headers";
 import { posts, getPost } from "../_posts";
 import { translations, type Lang } from "@/lib/translations";
 
+const BASE = "https://petpastlife.vercel.app";
+
 type Props = { params: Promise<{ slug: string }> };
 
 export async function generateStaticParams() {
@@ -15,9 +17,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) return {};
+  const url = `${BASE}/blog/${slug}`;
   return {
     title: `${post.title} — Pet Past Life`,
     description: post.excerpt,
+    alternates: { canonical: url },
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url,
+      type: "article",
+      publishedTime: new Date(post.date).toISOString(),
+      siteName: "Pet Past Life",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
+    },
   };
 }
 
