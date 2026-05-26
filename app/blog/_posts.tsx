@@ -1,14 +1,18 @@
 import React from "react";
+import { postsKo } from "./_posts-ko";
 
 export type Post = {
   slug: string;
   title: string;
+  titleKo: string;
   date: string;
   excerpt: string;
+  excerptKo: string;
   content: React.ReactNode;
+  contentKo: React.ReactNode;
 };
 
-export const posts: Post[] = [
+const postsEn = [
   {
     slug: "what-your-pets-eyes-reveal",
     title: "What Your Pet's Eyes Reveal About Their Past Life",
@@ -862,6 +866,16 @@ export const posts: Post[] = [
     ),
   },
 ];
+
+export const posts: Post[] = postsEn.map((p) => {
+  const ko = postsKo.find((k) => k.slug === p.slug);
+  return {
+    ...p,
+    titleKo: ko?.titleKo ?? p.title,
+    excerptKo: ko?.excerptKo ?? p.excerpt,
+    contentKo: ko?.contentKo ?? p.content,
+  };
+});
 
 export function getPost(slug: string): Post | undefined {
   return posts.find((p) => p.slug === slug);

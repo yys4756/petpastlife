@@ -1,29 +1,33 @@
 "use client";
 
+import { translations, type Lang } from "@/lib/translations";
+
 export type Personality = "energetic" | "calm" | "timid" | "bold";
 
 interface PersonalitySelectProps {
   value: Personality | null;
   onChange: (personality: Personality | null) => void;
+  lang: Lang;
 }
 
-const OPTIONS: { value: Personality; label: string }[] = [
-  { value: "energetic", label: "Energetic" },
-  { value: "calm",      label: "Calm" },
-  { value: "timid",     label: "Timid" },
-  { value: "bold",      label: "Bold" },
-];
+export function PersonalitySelect({ value, onChange, lang }: PersonalitySelectProps) {
+  const t = translations.home;
+  const OPTIONS: { value: Personality; label: string }[] = [
+    { value: "energetic", label: t.personalityEnergetic[lang] },
+    { value: "calm", label: t.personalityCalm[lang] },
+    { value: "timid", label: t.personalityTimid[lang] },
+    { value: "bold", label: t.personalityBold[lang] },
+  ];
 
-export function PersonalitySelect({ value, onChange }: PersonalitySelectProps) {
   const activeIndex = value === null ? -1 : OPTIONS.findIndex((o) => o.value === value);
   const hasSelection = activeIndex >= 0;
 
   return (
     <div className="field">
       <label className="field-label">
-        Personality
+        {t.personality[lang]}
         <span style={{ marginLeft: "0.4rem", fontSize: "0.75rem", color: "#9CA3AF", fontWeight: 400 }}>
-          (optional)
+          {t.personalityOptional[lang]}
         </span>
       </label>
 

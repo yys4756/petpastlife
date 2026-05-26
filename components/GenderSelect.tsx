@@ -1,29 +1,31 @@
 "use client";
 
+import { translations, type Lang } from "@/lib/translations";
+
 export type Gender = "boy" | "girl" | "unknown";
 
 interface GenderSelectProps {
   value: Gender | null;
   onChange: (gender: Gender) => void;
+  lang: Lang;
 }
 
-const OPTIONS: { value: Gender; label: string }[] = [
-  { value: "boy", label: "Boy" },
-  { value: "girl", label: "Girl" },
-  { value: "unknown", label: "Not sure" },
-];
+export function GenderSelect({ value, onChange, lang }: GenderSelectProps) {
+  const t = translations.home;
+  const OPTIONS: { value: Gender; label: string }[] = [
+    { value: "boy", label: t.genderBoy[lang] },
+    { value: "girl", label: t.genderGirl[lang] },
+    { value: "unknown", label: t.genderUnknown[lang] },
+  ];
 
-export function GenderSelect({ value, onChange }: GenderSelectProps) {
-  const activeIndex =
-    value === null ? -1 : OPTIONS.findIndex((o) => o.value === value);
+  const activeIndex = value === null ? -1 : OPTIONS.findIndex((o) => o.value === value);
   const hasSelection = activeIndex >= 0;
 
   return (
     <div className="field">
-      <label className="field-label">Gender</label>
+      <label className="field-label">{t.gender[lang]}</label>
 
       <div className="switch-container">
-        {/* 슬라이딩 인디케이터 */}
         <div
           className="switch-indicator"
           style={{
@@ -32,7 +34,6 @@ export function GenderSelect({ value, onChange }: GenderSelectProps) {
           }}
         />
 
-        {/* 버튼 3개 */}
         {OPTIONS.map((opt) => {
           const selected = value === opt.value;
           return (

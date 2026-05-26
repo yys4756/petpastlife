@@ -1,82 +1,78 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
+import { translations, type Lang } from "@/lib/translations";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — Pet Past Life",
 };
 
-export default function PrivacyPage() {
+export default async function PrivacyPage() {
+  const cookieStore = await cookies();
+  const lang: Lang = (cookieStore.get("NEXT_LOCALE")?.value as Lang) ?? "en";
+  const t = translations.privacy;
+
   return (
     <main className="page-wrap" style={{ alignItems: "flex-start", paddingTop: "4rem" }}>
       <div style={{ width: "100%", maxWidth: "42rem", margin: "0 auto" }}>
         <div className="card">
           <h1 className="title" style={{ fontSize: "2rem", marginBottom: "0.5rem" }}>
-            Privacy Policy
+            {t.title[lang]}
           </h1>
           <p style={{ fontSize: "0.8rem", color: "#9CA3AF", marginTop: 0, marginBottom: "2rem" }}>
-            Last updated: May 2025
+            {t.lastUpdated[lang]}
           </p>
 
-          <Section title="Overview">
-            Pet Past Life (&ldquo;we&rdquo;, &ldquo;our&rdquo;, &ldquo;the Service&rdquo;) is a free entertainment tool that
-            generates fictional past-life stories for pets. We are committed to
-            protecting your privacy.
+          <Section title={t.s1Title[lang]}>
+            {t.s1Body[lang]}
           </Section>
 
-          <Section title="Information We Collect">
-            When you use the Service you submit:
+          <Section title={t.s2Title[lang]}>
+            {t.s2Intro[lang]}
             <ul>
-              <li>A photo of your pet</li>
-              <li>Your pet&apos;s name and gender</li>
-              <li>An optional personality descriptor</li>
+              <li>{t.s2Item1[lang]}</li>
+              <li>{t.s2Item2[lang]}</li>
+              <li>{t.s2Item3[lang]}</li>
             </ul>
-            <strong>We do not store any of this data.</strong> Your photo and pet
-            details are transmitted directly to Google&apos;s AI API to generate the
-            story and are discarded immediately after. Nothing is saved to a
-            database or third-party storage.
+            <strong>{t.s2NoStore[lang]}</strong> {t.s2After[lang]}
           </Section>
 
-          <Section title="How We Use Your Data">
-            The photo and pet details you submit are used solely to generate the
-            fictional past-life story displayed on screen. They are not used for
-            training, advertising targeting, or any other purpose.
+          <Section title={t.s3Title[lang]}>
+            {t.s3Body[lang]}
           </Section>
 
-          <Section title="Third-Party Services">
-            We use <strong>Google AI Studio</strong> (Gemma models) to generate
-            stories. Your photo is sent to Google&apos;s servers as part of this
-            request. Please review{" "}
+          <Section title={t.s4Title[lang]}>
+            {t.s4Prefix[lang]}<strong>{t.s4Service[lang]}</strong>
+            {t.s4Middle[lang]}
             <a
               href="https://policies.google.com/privacy"
               target="_blank"
               rel="noopener noreferrer"
               style={{ color: "#6B1F2C" }}
             >
-              Google&apos;s Privacy Policy
-            </a>{" "}
-            for details on how they handle data.
+              {t.s4Link[lang]}
+            </a>
+            {t.s4After[lang]}
           </Section>
 
-          <Section title="Cookies &amp; Analytics">
-            We do not use cookies, tracking pixels, or analytics at this time.
+          <Section title={t.s5Title[lang]}>
+            {t.s5Body[lang]}
           </Section>
 
-          <Section title="Children's Privacy">
-            The Service is not directed at children under 13. We do not
-            knowingly collect personal information from children under 13.
+          <Section title={t.s6Title[lang]}>
+            {t.s6Body[lang]}
           </Section>
 
-          <Section title="Contact">
-            If you have questions about this policy, contact us at{" "}
+          <Section title={t.s7Title[lang]}>
+            {t.s7Prefix[lang]}{" "}
             <a href="mailto:rs21140@hanyang.ac.kr" style={{ color: "#6B1F2C" }}>
               rs21140@hanyang.ac.kr
             </a>
-            .
           </Section>
         </div>
 
         <p className="footer-note" style={{ marginTop: "1.5rem" }}>
           <a href="/" style={{ color: "rgba(255,255,255,0.6)" }}>
-            ← Back to Pet Past Life
+            {t.back[lang]}
           </a>
         </p>
       </div>

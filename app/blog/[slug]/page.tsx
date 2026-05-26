@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { cookies } from "next/headers";
 import { posts, getPost } from "../_posts";
+import { translations, type Lang } from "@/lib/translations";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -23,6 +25,15 @@ export default async function PostPage({ params }: Props) {
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) notFound();
+
+  const cookieStore = await cookies();
+  const lang: Lang = (cookieStore.get("NEXT_LOCALE")?.value as Lang) ?? "en";
+  const t = translations.post;
+
+  const title = lang === "ko" ? (post.titleKo ?? post.title) : post.title;
+  const excerpt = lang === "ko" ? (post.excerptKo ?? post.excerpt) : post.excerpt;
+  const content = lang === "ko" ? (post.contentKo ?? post.content) : post.content;
+  const locale = lang === "ko" ? "ko-KR" : "en-US";
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -56,7 +67,7 @@ export default async function PostPage({ params }: Props) {
               marginBottom: "0.75rem",
             }}
           >
-            {new Date(post.date).toLocaleDateString("en-US", {
+            {new Date(post.date).toLocaleDateString(locale, {
               year: "numeric",
               month: "long",
               day: "numeric",
@@ -73,7 +84,7 @@ export default async function PostPage({ params }: Props) {
               fontWeight: 400,
             }}
           >
-            {post.title}
+            {title}
           </h1>
 
           <p
@@ -85,7 +96,7 @@ export default async function PostPage({ params }: Props) {
               fontStyle: "italic",
             }}
           >
-            {post.excerpt}
+            {excerpt}
           </p>
 
           <div
@@ -96,16 +107,16 @@ export default async function PostPage({ params }: Props) {
             }}
           />
 
-          <div className="prose-content">{post.content}</div>
+          <div className="prose-content">{content}</div>
         </div>
 
         <p className="footer-note" style={{ marginTop: "1.5rem" }}>
           <Link href="/blog" style={{ color: "rgba(255,255,255,0.6)" }}>
-            ← All posts
+            {t.allPosts[lang]}
           </Link>
           {" · "}
           <Link href="/" style={{ color: "rgba(255,255,255,0.6)" }}>
-            Try Pet Past Life
+            {t.tryPastLife[lang]}
           </Link>
         </p>
       </div>

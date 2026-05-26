@@ -2,15 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { translations } from "@/lib/translations";
+import type { Lang } from "@/lib/translations";
 
-const NAV_ITEMS = [
-  { label: "Past Life", href: "/" },
-  { label: "Horoscope", href: "/horoscope" },
-  { label: "Blog", href: "/blog" },
-];
-
-export function NavBar() {
+export function NavBar({ lang }: { lang: Lang }) {
   const pathname = usePathname();
+
+  const NAV_ITEMS = [
+    { label: translations.nav.pastLife[lang], href: "/" },
+    { label: translations.nav.horoscope[lang], href: "/horoscope" },
+    { label: translations.nav.blog[lang], href: "/blog" },
+  ];
 
   return (
     <nav style={{
@@ -22,12 +24,10 @@ export function NavBar() {
       maxWidth: "48rem",
       margin: "0 auto",
     }}>
-      {/* Logo */}
       <Link href="/" style={{ textDecoration: "none" }}>
         <span style={{ fontSize: "1.5rem" }}>🐾</span>
       </Link>
 
-      {/* Links */}
       <div style={{ display: "flex", gap: "0.25rem" }}>
         {NAV_ITEMS.map(({ label, href }) => {
           const isActive = href === "/" ? pathname === "/" : pathname.startsWith(href);

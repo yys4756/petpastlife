@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import { cookies } from "next/headers";
 import { Outfit, Italiana } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { NavBar } from "@/components/NavBar";
+import { LanguageToggle } from "@/components/LanguageToggle";
+import type { Lang } from "@/lib/translations";
 import "./globals.css";
 
 const outfit = Outfit({
@@ -40,20 +43,32 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const cookieStore = await cookies();
+  const lang: Lang = (cookieStore.get("NEXT_LOCALE")?.value as Lang) ?? "en";
+
   return (
     <html
-      lang="en"
+      lang={lang}
       className={`${outfit.variable} ${italiana.variable}`}
       suppressHydrationWarning
     >
       <body suppressHydrationWarning>
-        <NavBar />
+        <NavBar lang={lang} />
         {children}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            paddingBottom: "1.5rem",
+          }}
+        >
+          <LanguageToggle lang={lang} />
+        </div>
         <Analytics />
         <script
           type="application/ld+json"

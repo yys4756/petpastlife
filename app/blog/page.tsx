@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { cookies } from "next/headers";
 import { posts } from "./_posts";
+import { translations, type Lang } from "@/lib/translations";
 
 export const metadata: Metadata = {
   title: "Blog — Pet Past Life",
@@ -8,20 +10,24 @@ export const metadata: Metadata = {
     "Stories, science, and history about pets, past lives, and the ancient bond between animals and humans.",
 };
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const cookieStore = await cookies();
+  const lang: Lang = (cookieStore.get("NEXT_LOCALE")?.value as Lang) ?? "en";
+  const t = translations.blog;
+
   const sorted = [...posts].sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime(),
   );
+
+  const locale = lang === "ko" ? "ko-KR" : "en-US";
 
   return (
     <main className="page-wrap" style={{ alignItems: "flex-start", paddingTop: "4rem" }}>
       <div style={{ width: "100%", maxWidth: "42rem", margin: "0 auto" }}>
         <div className="card">
           <div className="card-header">
-            <h1 className="title" style={{ fontSize: "2.5rem" }}>Blog</h1>
-            <p className="subtitle">
-              Stories, science, and history about pets and their past lives.
-            </p>
+            <h1 className="title" style={{ fontSize: "2.5rem" }}>{t.title[lang]}</h1>
+            <p className="subtitle">{t.subtitle[lang]}</p>
           </div>
 
           <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
@@ -36,7 +42,7 @@ export default function BlogPage() {
                     marginBottom: "0.35rem",
                   }}
                 >
-                  {new Date(post.date).toLocaleDateString("en-US", {
+                  {new Date(post.date).toLocaleDateString(locale, {
                     year: "numeric",
                     month: "long",
                     day: "numeric",
@@ -47,11 +53,11 @@ export default function BlogPage() {
                     href={`/blog/${post.slug}`}
                     style={{ color: "#1F2937", textDecoration: "none" }}
                   >
-                    {post.title}
+                    {lang === "ko" ? post.titleKo : post.title}
                   </Link>
                 </h2>
                 <p style={{ margin: 0, fontSize: "0.9rem", color: "#6B7280", lineHeight: 1.6 }}>
-                  {post.excerpt}
+                  {lang === "ko" ? post.excerptKo : post.excerpt}
                 </p>
                 <Link
                   href={`/blog/${post.slug}`}
@@ -64,7 +70,7 @@ export default function BlogPage() {
                     textDecoration: "none",
                   }}
                 >
-                  Read more →
+                  {t.readMore[lang]}
                 </Link>
 
                 <div
@@ -81,7 +87,7 @@ export default function BlogPage() {
 
         <p className="footer-note" style={{ marginTop: "1.5rem" }}>
           <a href="/" style={{ color: "rgba(255,255,255,0.6)" }}>
-            ← Try Pet Past Life
+            {t.tryPastLife[lang]}
           </a>
         </p>
       </div>
