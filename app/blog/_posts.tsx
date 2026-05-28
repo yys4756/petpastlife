@@ -10,12 +10,14 @@ export type Post = {
   excerptKo: string;
   content: React.ReactNode;
   contentKo: React.ReactNode;
+  image?: string;
 };
 
 const postsEn = [
   {
     slug: "what-your-pets-eyes-reveal",
     title: "What Your Pet's Eyes Reveal About Their Past Life",
+    image: "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
     date: "2025-05-01",
     excerpt:
       "Eyes are called the window to the soul — and for pets, they may be a window to a previous existence. Here's how to read the silent story behind your pet's gaze.",
@@ -95,6 +97,7 @@ const postsEn = [
   {
     slug: "10-signs-your-dog-was-a-warrior",
     title: "10 Signs Your Dog Was a Warrior in a Past Life",
+    image: "https://images.pexels.com/photos/356378/pexels-photo-356378.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
     date: "2025-05-03",
     excerpt:
       "Does your dog patrol the yard, sleep facing the door, or refuse to back down from anything? These classic warrior traits might be echoes from a very different lifetime.",
@@ -187,6 +190,7 @@ const postsEn = [
   {
     slug: "cats-in-ancient-egypt",
     title: "From Sacred Cats of Egypt to Your Couch: A 5,000-Year Journey",
+    image: "https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
     date: "2025-05-06",
     excerpt:
       "Cats were once worshipped as gods in ancient Egypt. If your cat acts like it still expects that treatment, there may be a perfectly good historical explanation.",
@@ -266,6 +270,7 @@ const postsEn = [
   {
     slug: "why-cats-stare-into-empty-space",
     title: "Why Does My Cat Stare Into Empty Space? A Past Life Theory",
+    image: "https://images.pexels.com/photos/1170986/pexels-photo-1170986.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
     date: "2025-05-08",
     excerpt:
       "Every cat owner has seen it: the unblinking stare at a blank wall. Science has one explanation. Past-life theory has another, and honestly, it's more interesting.",
@@ -347,6 +352,7 @@ const postsEn = [
   {
     slug: "ancient-bond-humans-and-dogs",
     title: "The 15,000-Year Bond Between Humans and Dogs",
+    image: "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
     date: "2025-05-10",
     excerpt:
       "Dogs didn't become man's best friend by accident. The story of how wolves became dogs — and why the relationship has lasted fifteen thousand years — is one of the most remarkable in natural history.",
@@ -422,6 +428,7 @@ const postsEn = [
   {
     slug: "how-ai-reads-your-pet-photo",
     title: "How AI Reads Your Pet's Photo to Reveal Their Past Life",
+    image: "https://images.pexels.com/photos/1317844/pexels-photo-1317844.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
     date: "2025-05-13",
     excerpt:
       "Behind every past-life reading on this site is a large multimodal AI model analyzing your pet's photo. Here's exactly what it looks for — and why the results feel so personal.",
@@ -506,6 +513,7 @@ const postsEn = [
   {
     slug: "pet-personality-types-and-history",
     title: "Your Pet's Personality Type and What It Reveals About Their Past",
+    image: "https://images.pexels.com/photos/2253275/pexels-photo-2253275.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
     date: "2025-05-15",
     excerpt:
       "Energetic, calm, timid, bold — the four core personality types in pets have historical parallels stretching back thousands of years. Which one is your pet?",
@@ -597,6 +605,7 @@ const postsEn = [
   {
     slug: "every-pet-has-a-past-life",
     title: "Rabbits, Parrots, and Hamsters: Every Pet Has a Past Life Story",
+    image: "https://images.pexels.com/photos/326012/pexels-photo-326012.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
     date: "2025-05-17",
     excerpt:
       "Past-life readings aren't just for cats and dogs. Every pet carries a unique energy — and some of the most surprising past lives belong to the smallest animals.",
@@ -686,6 +695,7 @@ const postsEn = [
   {
     slug: "famous-historical-figures-reincarnated-as-pets",
     title: "7 Historical Figures Who May Have Reincarnated as Pets",
+    image: "https://images.pexels.com/photos/2061057/pexels-photo-2061057.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
     date: "2025-05-19",
     excerpt:
       "Strictly for entertainment: seven historical personalities whose defining traits appear surprisingly often in the pets we know and love today.",
@@ -770,6 +780,7 @@ const postsEn = [
   {
     slug: "reading-your-pets-past-life-from-behavior",
     title: "5 Everyday Pet Behaviors That Hint at a Past Life",
+    image: "https://images.pexels.com/photos/57627/pexels-photo-57627.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
     date: "2025-05-20",
     excerpt:
       "Spinning before sleeping. Kneading. Burying food. These behaviors puzzle science and enchant past-life theorists. Here's what your pet might be unconsciously remembering.",
@@ -868,6 +879,7 @@ const postsEn = [
   {
     slug: "do-pets-reincarnate",
     title: "Do Pets Reincarnate? What Science, Religion, and Pet Owners Believe",
+    image: "https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
     date: "2025-05-22",
     excerpt:
       "Across cultures and centuries, humans have believed that animals carry souls across lifetimes. Here's what we actually know — and what we're still guessing.",
@@ -978,6 +990,7 @@ const postsEn = [
   {
     slug: "signs-deceased-pet-reincarnated",
     title: "Signs Your Deceased Pet Has Reincarnated as Your New Pet",
+    image: "https://images.pexels.com/photos/1458925/pexels-photo-1458925.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
     date: "2025-05-24",
     excerpt:
       "When a new animal walks into your life and immediately acts like they've known you forever, is it coincidence — or something older? Here are the signs people actually report.",
@@ -1068,6 +1081,7 @@ const postsEn = [
   {
     slug: "cat-past-life-clues",
     title: "Cat Past Life: 7 Clues Your Cat Has Lived Before",
+    image: "https://images.pexels.com/photos/2071873/pexels-photo-2071873.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
     date: "2025-05-26",
     excerpt:
       "Cats have been worshipped, feared, and studied for 10,000 years — and they still act like they're keeping a secret. These seven behaviors might be why.",
@@ -1164,6 +1178,212 @@ const postsEn = [
             upload their photo for a full past-life reading
           </a>
           . They've been patient enough waiting for you to ask.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "golden-retriever-past-life",
+    title: "The Golden Retriever: An Ancient Soul in a Modern Coat",
+    image: "https://images.pexels.com/photos/1591056/pexels-photo-1591056.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
+    date: "2025-05-28",
+    excerpt:
+      "Golden retrievers possess an extraordinary wisdom that transcends their playful nature. Their past life may hold the key to understanding their gentle, intuitive spirit.",
+    content: (
+      <>
+        <p>
+          Golden retrievers have captivated humanity for over a century with their unwavering kindness, intelligence, and inexplicable ability to sense human emotion. Yet the golden retriever past life story suggests something deeper — a soul that has journeyed through multiple lifetimes, accumulating wisdom and compassion. These dogs seem almost destined to be healers, therapists, and companions to those in need.
+        </p>
+        <h2>The Ancient Wisdom Behind Golden Eyes</h2>
+        <p>
+          When you look into a golden retriever's eyes, you're not just seeing a dog — you're peering into the soul of an old being. Many pet reincarnation experts believe that golden retrievers carry forward consciousness from lifetimes spent in service to others. Some may have been healers in ancient times, monks in monasteries, or trusted companions to royalty. Their innate ability to provide emotional support suggests a learned patience that comes only with multiple lifetimes of experience.
+        </p>
+        <h2>Behavioral Clues to Your Golden's Past Life</h2>
+        <p>
+          Their tendency to lean against you during stressful moments, their refusal to leave your side when you're upset, or their gentle way of playing with puppies and vulnerable animals all suggest past-life experiences as protectors and nurturers. Some goldens appear to have specific fears or preferences that don't align with their breed standard — these anomalies often point to traumatic or joyful experiences from previous incarnations. <a href="/blog/reading-your-pets-past-life-from-behavior">Understanding how to read your pet's past life through behavior</a> can deepen your connection and explain those mysterious quirks.
+        </p>
+        <h2>The Soul Contract Between You and Your Golden</h2>
+        <p>
+          Many believers in animal reincarnation speak of "soul contracts" — predetermined spiritual agreements where certain souls are meant to find each other across lifetimes. Your golden retriever may have chosen to return in this form specifically to be with you. The bond you share, especially if it feels unusually strong or immediate, suggests that you two have traveled together before. This isn't coincidence; it's cosmic alignment.
+        </p>
+        <p>
+          The presence of a golden retriever in your life is not a small thing. These ancient souls, wrapped in golden coats and powered by boundless love, represent a spiritual partnership that began long before your first meeting.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "rainbow-bridge-reincarnation",
+    title: "The Rainbow Bridge and Reincarnation: Will Your Pet Return?",
+    image: "https://images.pexels.com/photos/417173/pexels-photo-417173.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
+    date: "2025-05-29",
+    excerpt:
+      "The Rainbow Bridge symbolizes the veil between worlds. But does rainbow bridge reincarnation mean your beloved pet will return to you? Explore the spiritual mysteries of pet rebirth.",
+    content: (
+      <>
+        <p>
+          The Rainbow Bridge is one of the most cherished concepts in pet spirituality, offering comfort to grieving owners with the image of their beloved companion waiting peacefully on the other side. But what happens after a pet crosses that bridge? Does your furry friend stay there eternally, or does the soul begin a new journey toward rainbow bridge reincarnation? Understanding this connection between loss and renewal is essential for anyone seeking spiritual closure after losing a companion.
+        </p>
+        <h2>The Spiritual Meaning of the Rainbow Bridge</h2>
+        <p>
+          The Rainbow Bridge represents a threshold between the physical and spiritual worlds — a place of perfect peace where departed pets exist free from pain, illness, and suffering. In this liminal space, they wait with other animals, in a meadow of eternal spring. This beautiful imagery provides solace to grieving hearts, but it raises a profound question: if our pets are at peace there, why would they choose to return? The answer lies in understanding that soul contracts and spiritual bonds transcend physical death. Some pets choose to remain in this realm; others feel an irresistible pull to reunite with their beloved humans.
+        </p>
+        <h2>Signs Your Pet May Be Planning a Return</h2>
+        <p>
+          Many spiritual practitioners believe that before crossing the Rainbow Bridge permanently, pets may send signs indicating their intention to reincarnate. A new animal inexplicably appearing in your life, dreams of your pet with a specific message, or the sudden arrival of a stray with markings identical to your deceased companion — these may not be chance encounters. <a href="/blog/signs-deceased-pet-reincarnated">Learning to recognize the signs that your deceased pet has reincarnated</a> can help you identify when your beloved animal has chosen to return in a new form.
+        </p>
+        <h2>The Choice to Return: Free Will and Soul Contracts</h2>
+        <p>
+          Not every pet will reincarnate, and this isn't a failure of love. Some souls have completed their earthly lessons and choose to move on to different planes of existence. However, when two souls share a profound connection, they often have established a soul contract — an agreement to find each other again. The bond you shared was real and eternal; the Rainbow Bridge is merely a pause, not an ending.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "old-soul-pet-signs",
+    title: "7 Signs Your Pet Is an Old Soul",
+    image: "https://images.pexels.com/photos/1404819/pexels-photo-1404819.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
+    date: "2025-05-30",
+    excerpt:
+      "Some pets seem wise beyond their years, displaying behaviors that suggest reincarnation. Discover the signs your pet is an old soul with ancient wisdom.",
+    content: (
+      <>
+        <p>
+          Have you ever looked at your pet and felt an inexplicable sense that they're far older than their chronological age? Many pet owners report this uncanny feeling — and they may be sensing something real. Old soul pet signs manifest in surprising ways, from unusual wisdom and emotional intelligence to behavioral patterns that suggest previous lives. These aren't coincidences; they're glimpses into your pet's deeper spiritual history.
+        </p>
+        <h2>Emotional Intelligence and Empathy Beyond Their Years</h2>
+        <p>
+          Old souls possess a remarkable ability to understand human emotion without words. If your pet seems to know exactly when you're sad, stressed, or unwell and responds with comfort, this is a primary indicator of an ancient spirit. These pets don't learn empathy from training — they seem to be born knowing how to console and comfort. Their level of intuition suggests a being who has spent multiple lifetimes observing and caring for others. <a href="/blog/what-your-pets-eyes-reveal">Your pet's eyes often carry this same depth of ancient knowing.</a>
+        </p>
+        <h2>Specific Unexplained Fears or Extraordinary Calm</h2>
+        <p>
+          Old souls often display either extraordinary calm in situations that terrify younger animals, or intense, inexplicable fears that seem unrelated to their current life experience. A dog who shows zero anxiety at the vet despite never having been there, or a cat who panics at the sight of fire despite living indoors — these behavioral anomalies often point to past-life memories. Their calm may reflect experiences as a protection animal or warrior; their fears may be echoes of trauma they've overcome.
+        </p>
+        <h2>Wisdom in Their Eyes and a Serious Demeanor</h2>
+        <p>
+          When you look into an old soul pet's eyes, you see something different — a depth, a knowing, a seriousness that goes beyond what you'd expect from a young animal. Their gaze holds wisdom and patient observation. Many people who meet old soul pets remark about the unusual gravitas these animals possess. They seem to be watching and understanding rather than simply reacting.
+        </p>
+        <h2>An Immediate, Inexplicable Bond With You</h2>
+        <p>
+          If the connection between you and your pet felt instant and profound — as if you'd always known each other — this is perhaps the strongest sign you've encountered an old soul. This immediate recognition is the soul remembering a previous contract or reunion. You didn't just meet; you reunited.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "how-long-pets-reincarnate",
+    title: "How Long Does It Take for a Pet to Reincarnate?",
+    image: "https://images.pexels.com/photos/339805/pexels-photo-339805.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
+    date: "2025-05-31",
+    excerpt:
+      "When a beloved pet passes, grieving owners wonder: will they return? How long does it take for a pet to reincarnate? Explore the spiritual timeline of pet rebirth.",
+    content: (
+      <>
+        <p>
+          One of the most painful questions a grieving pet owner faces is whether their beloved companion will return. How long does it take for a pet to reincarnate? Spiritual traditions offer varying perspectives on the timeline. Some souls return within weeks; others may take years or even lifetimes. Understanding the factors that influence this timeline can bring comfort during grief and hope for potential reunion.
+        </p>
+        <h2>The Variable Timeline: Days to Lifetimes</h2>
+        <p>
+          Unlike the human soul, which spiritual traditions often describe as requiring time for reflection between lives, animal souls appear to operate on a different schedule. Buddhist teachings suggest that rebirth can occur almost immediately — sometimes within days of death — particularly for animals that have formed strong karmic bonds with living beings. However, not all pet souls rush back to the physical realm. Some choose extended periods in the spiritual dimension to rest, reflect, and prepare. The timeline depends on multiple factors: the soul's age, the strength of its earthly bonds, and whether there are unresolved lessons or promises.
+        </p>
+        <h2>Soul Age and Spiritual Development</h2>
+        <p>
+          The age of a soul — not its physical age — significantly impacts reincarnation timing. Younger souls may reincarnate quickly, almost reflexively, because they haven't yet developed the patience to wait or the wisdom to know they need rest. Older, more advanced souls often take longer because they're capable of deeper reflection. <a href="/blog/do-pets-reincarnate">Whether all pets reincarnate</a> depends partly on their spiritual maturity. An ancient soul may choose not to reincarnate at all, having completed its earthly journey.
+        </p>
+        <h2>Signs of Imminent Reincarnation</h2>
+        <p>
+          Spiritual teachers suggest that signs often precede a pet's return. You might experience vivid dreams of your deceased pet, encounter the same breed unexpectedly, or feel a sudden inexplicable warmth when thinking of them. Some owners report seeing their pet's distinctive markings on a new animal, or meeting a stray that seems destined to find them. While there's no universal timeline, the truth is comforting: reincarnation is not a question of if, but when and in what form.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "pet-past-life-buddhism",
+    title: "What Buddhism Says About Your Pet's Past Life",
+    image: "https://images.pexels.com/photos/158028/pexels-photo-158028.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
+    date: "2025-06-01",
+    excerpt:
+      "Buddhist philosophy offers profound insights into reincarnation and karma. Discover what Buddhism teaches about your pet's past life and their spiritual journey.",
+    content: (
+      <>
+        <p>
+          Buddhism has contemplated the spiritual nature of animals for over two thousand years, offering a sophisticated understanding of reincarnation, karma, and consciousness. The pet past life Buddhism perspective differs significantly from Western spirituality — it's grounded in observable cycles of cause and effect rather than romantic notions of destiny. Yet it's deeply compassionate, viewing every creature as a being capable of enlightenment.
+        </p>
+        <h2>Sentience, Karma, and the Wheel of Life</h2>
+        <p>
+          Central to Buddhist philosophy is the understanding that all sentient beings — including animals — possess consciousness and are subject to the laws of karma. The wheel of life (samsara) shows six realms of rebirth, with animal rebirth described as a middle state between higher and lower existences. Your pet's current form as a dog or cat reflects their karmic position — neither punishment nor reward, but natural consequence. Buddhism teaches that animals are beings who are learning, growing, and potentially moving toward enlightenment.
+        </p>
+        <h2>Reincarnation and Spiritual Progression</h2>
+        <p>
+          Unlike Western beliefs that sometimes suggest pets are "stuck," Buddhism views animal reincarnation as part of a clear spiritual progression. Your pet may have been human in a past life, or they may continue as animals through multiple incarnations while gradually developing wisdom and compassion. A being born as a loyal dog may be learning humility and unconditional service. A cat — independent and observant — may be cultivating self-sufficiency. <a href="/blog/cats-in-ancient-egypt">Even historical records suggest cats held spiritual significance in ancient Egypt</a>, a tradition Buddhism would recognize as reflecting the soul's work across time.
+        </p>
+        <h2>Compassion as the Core Spiritual Practice</h2>
+        <p>
+          Buddhism teaches that all sentient beings seek to avoid suffering, just as humans do. Your pet's fear, joy, hunger, and love are not inferior versions of human emotion; they're expressions of the same fundamental consciousness. When you care for your pet, you're not just feeding and sheltering an animal; you're practicing one of Buddhism's highest virtues: compassion for all sentient life. This practice accumulates positive karma not only for you, but potentially for your pet as well.
+        </p>
+        <h2>Ethical Implications of Understanding Pet Past Lives</h2>
+        <p>
+          If your pet is a conscious being subject to karma, with past lives and potential future lives, this demands ethical consideration. How you treat your animal today shapes both your karma and potentially theirs. Buddhism's view of animal reincarnation is ultimately hopeful: every being, including your pet, has the potential to progress spiritually and eventually reach enlightenment. Your role in their life — as caregiver and companion — is sacred work.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "fur-markings-past-life",
+    title: "What Your Pet's Fur Markings Reveal About Their Past Life",
+    image: "https://images.pexels.com/photos/127027/pexels-photo-127027.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
+    date: "2025-06-02",
+    excerpt:
+      "Could your pet's unique fur patterns hold clues to their past life? Explore how markings and colors may reflect a soul's previous incarnations.",
+    content: (
+      <>
+        <p>
+          That distinctive white spot on their chest, the unusual blaze across their face, or the rare coloring that doesn't match breed standards — these may not be random. Many spiritual practitioners believe that pet fur markings past life connections run deeper than genetics. The patterns we see may be echoes of a previous existence, physical markers that the soul carries forward, or spiritual signatures chosen before incarnation.
+        </p>
+        <h2>Spiritual Significance of Unique Markings</h2>
+        <p>
+          In many spiritual traditions, distinctive markings are understood as intentional. A soul preparing for incarnation may choose a body with specific characteristics that will help facilitate their spiritual work. A white spot on the chest might reflect a soul's previous identity as a healer or spiritual guide — white being universally associated with purity and healing. A dark mask across the eyes could indicate a past life as a guardian or protector. These aren't superstitions; they're symbolic languages that the soul understands even when the conscious mind doesn't.
+        </p>
+        <h2>Color Symbolism and Soul History</h2>
+        <p>
+          Different colors carry different spiritual vibrations. Black markings often suggest a soul learning to transmute shadow and fear into wisdom and courage. Red or reddish coats might indicate passion and previous warrior energy. Golden or cream-colored fur often reflects warmth and past-life experience as a spiritual guide or nurturer. <a href="/blog/what-your-pets-eyes-reveal">Just as your pet's eyes reveal windows into their past life</a>, their coloring tells a complementary story about their spiritual journey.
+        </p>
+        <h2>Recognizing Your Pet in New Incarnations</h2>
+        <p>
+          If your pet passes and you wonder whether they'll return, pay attention to distinctive markings. Many people report recognizing reincarnated pets by identical or nearly identical marking patterns on a new animal. A soulmate's mark — that unique spot, stripe, or coloring — may appear again and again across incarnations, serving as a spiritual signature that helps you recognize your beloved companion. This isn't coincidence; it's the soul choosing continuity in how it presents itself to those who loved it before.
+        </p>
+        <p>
+          Your pet's fur markings are not accidents of nature but spiritual intention made visible. Look at your companion with new understanding — you're not just seeing beautiful markings; you're reading the visible story of an ancient soul's journey.
+        </p>
+      </>
+    ),
+  },
+  {
+    slug: "why-dogs-are-loyal-past-life",
+    title: "Why Dogs Are So Loyal: A Past-Life Explanation",
+    image: "https://images.pexels.com/photos/551628/pexels-photo-551628.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
+    date: "2025-06-03",
+    excerpt:
+      "Dog loyalty has long mystified and touched human hearts. Discover why dogs are so loyal through the lens of past-life connections and spiritual soul contracts.",
+    content: (
+      <>
+        <p>
+          Dogs have earned their reputation as humanity's most loyal companion, but the depth of canine devotion remains one of the great mysteries of human-animal relationships. A dog's willingness to sacrifice, to grieve, to remain faithful through suffering and separation — this surpasses what we'd expect from an animal operating on pure instinct alone. Why are dogs so loyal? Past-life explanations offer profound spiritual insight: these connections weren't forged in this lifetime alone, but are rooted in soul contracts that transcend time and physical form.
+        </p>
+        <h2>Past-Life Bonds and Unfinished Business</h2>
+        <p>
+          Many spiritual teachers suggest that the extraordinary loyalty of dogs reflects deep karmic connections with their humans. Your dog may have been your guardian, your soldier, your protector, or your devoted servant in a previous life. These roles imprinted so deeply on the soul that when you both reincarnated, the dog instinctively remembered their purpose: to serve you, to protect you, to love you with singular devotion. Some dogs seem to recognize their owners immediately upon meeting, as though remembering a contract signed lifetimes ago.
+        </p>
+        <h2>The Healer Dog: A Soul in Service</h2>
+        <p>
+          Certain dogs seem born knowing their role is to heal human hearts. Service dogs and therapy dogs show an eerie prescience about when their humans are suffering. They arrive with comfort before being asked, they sense illness before medical tests confirm it. This capability suggests a soul with lifetimes of experience in the sacred work of healing and caregiving — perhaps a medicine woman's familiar, a monk's companion, or a nurse across centuries. Their loyalty isn't blind obedience; it's conscious commitment to a sacred mission they've undertaken before.
+        </p>
+        <h2>The Warrior's Bond: Loyalty Forged in Hardship</h2>
+        <p>
+          History is filled with stories of dogs who died defending their owners, or refused to leave a beloved human's side even unto death. A dog and human may have fought wars together, fled dangers together, or depended utterly on each other for survival. That mutual trust, once earned through genuine trials, marks the soul forever. When two souls meet again, that trust awakens instantly. <a href="/blog/ancient-bond-humans-and-dogs">The ancient bond between humans and dogs</a> may be the oldest soul contract in human history.
+        </p>
+        <p>
+          The loyalty of dogs is one of the greatest spiritual gifts available to humans — a constant reminder that love transcends all boundaries, that the bonds we forge with other souls matter eternally. Your dog's fierce and faithful heart beats with the memory of infinite lifetimes spent by your side.
         </p>
       </>
     ),

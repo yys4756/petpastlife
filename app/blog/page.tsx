@@ -51,45 +51,64 @@ export default async function BlogPage() {
           <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
             {sorted.map((post) => (
               <article key={post.slug}>
-                <div
-                  style={{
-                    fontSize: "0.7rem",
-                    letterSpacing: "0.15em",
-                    textTransform: "uppercase",
-                    color: "#9CA3AF",
-                    marginBottom: "0.35rem",
-                  }}
-                >
-                  {new Date(post.date).toLocaleDateString(locale, {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
+                <div style={{ display: "flex", gap: "1rem", alignItems: "flex-start" }}>
+                  {post.image && (
+                    <Link href={`/blog/${post.slug}`} style={{ flexShrink: 0 }}>
+                      <img
+                        src={post.image}
+                        alt={lang === "ko" ? post.titleKo : post.title}
+                        style={{
+                          width: "90px",
+                          height: "68px",
+                          objectFit: "cover",
+                          borderRadius: "0.375rem",
+                          display: "block",
+                        }}
+                      />
+                    </Link>
+                  )}
+                  <div style={{ flex: 1, minWidth: 0 }}>
+                    <div
+                      style={{
+                        fontSize: "0.7rem",
+                        letterSpacing: "0.15em",
+                        textTransform: "uppercase",
+                        color: "#9CA3AF",
+                        marginBottom: "0.35rem",
+                      }}
+                    >
+                      {new Date(post.date).toLocaleDateString(locale, {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </div>
+                    <h2 style={{ margin: "0 0 0.5rem", fontSize: "1.15rem", lineHeight: 1.3 }}>
+                      <Link
+                        href={`/blog/${post.slug}`}
+                        style={{ color: "#1F2937", textDecoration: "none" }}
+                      >
+                        {lang === "ko" ? post.titleKo : post.title}
+                      </Link>
+                    </h2>
+                    <p style={{ margin: 0, fontSize: "0.9rem", color: "#6B7280", lineHeight: 1.6 }}>
+                      {lang === "ko" ? post.excerptKo : post.excerpt}
+                    </p>
+                    <Link
+                      href={`/blog/${post.slug}`}
+                      style={{
+                        display: "inline-block",
+                        marginTop: "0.6rem",
+                        fontSize: "0.8rem",
+                        fontWeight: 600,
+                        color: "#6B1F2C",
+                        textDecoration: "none",
+                      }}
+                    >
+                      {t.readMore[lang]}
+                    </Link>
+                  </div>
                 </div>
-                <h2 style={{ margin: "0 0 0.5rem", fontSize: "1.15rem", lineHeight: 1.3 }}>
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    style={{ color: "#1F2937", textDecoration: "none" }}
-                  >
-                    {lang === "ko" ? post.titleKo : post.title}
-                  </Link>
-                </h2>
-                <p style={{ margin: 0, fontSize: "0.9rem", color: "#6B7280", lineHeight: 1.6 }}>
-                  {lang === "ko" ? post.excerptKo : post.excerpt}
-                </p>
-                <Link
-                  href={`/blog/${post.slug}`}
-                  style={{
-                    display: "inline-block",
-                    marginTop: "0.6rem",
-                    fontSize: "0.8rem",
-                    fontWeight: 600,
-                    color: "#6B1F2C",
-                    textDecoration: "none",
-                  }}
-                >
-                  {t.readMore[lang]}
-                </Link>
 
                 <div
                   style={{

@@ -136,6 +136,21 @@ export default async function PostPage({ params }: Props) {
             }}
           />
 
+          {post.image && (
+            <img
+              src={post.image}
+              alt={title}
+              style={{
+                width: "100%",
+                height: "260px",
+                objectFit: "cover",
+                borderRadius: "0.5rem",
+                marginBottom: "2rem",
+                display: "block",
+              }}
+            />
+          )}
+
           <div className="prose-content">{content}</div>
 
           <div
