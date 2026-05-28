@@ -17,23 +17,35 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = getPost(slug);
   if (!post) return {};
+
+  const cookieStore = await cookies();
+  const lang: Lang = (cookieStore.get("NEXT_LOCALE")?.value as Lang) ?? "en";
+  const isKo = lang === "ko";
+
+  const title = isKo ? (post.titleKo ?? post.title) : post.title;
+  const description = isKo ? (post.excerptKo ?? post.excerpt) : post.excerpt;
+  const siteName = isKo ? "반려동물 전생" : "Pet Past Life";
   const url = `${BASE}/blog/${slug}`;
+
   return {
-    title: `${post.title} — Pet Past Life`,
-    description: post.excerpt,
-    alternates: { canonical: url },
+    title: `${title} — ${siteName}`,
+    description,
+    alternates: {
+      canonical: url,
+      languages: { en: url, ko: url },
+    },
     openGraph: {
-      title: post.title,
-      description: post.excerpt,
+      title,
+      description,
       url,
       type: "article",
       publishedTime: new Date(post.date).toISOString(),
-      siteName: "Pet Past Life",
+      siteName,
     },
     twitter: {
       card: "summary_large_image",
-      title: post.title,
-      description: post.excerpt,
+      title,
+      description,
     },
   };
 }

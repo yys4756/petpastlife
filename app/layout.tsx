@@ -7,6 +7,7 @@ import { LanguageToggle } from "@/components/LanguageToggle";
 import type { Lang } from "@/lib/translations";
 import "./globals.css";
 
+
 const outfit = Outfit({
   subsets: ["latin"],
   variable: "--font-outfit",
@@ -23,25 +24,42 @@ const italiana = Italiana({
 
 const BASE = "https://petpastlife.vercel.app";
 
-export const metadata: Metadata = {
-  title: "Your Pet's Past Life — Discover who your pet was before",
-  description:
-    "Upload a photo of your pet and reveal who they were in a past life. Powered by AI.",
-  metadataBase: new URL(BASE),
-  openGraph: {
-    title: "Your Pet's Past Life",
-    description: "Who was your pet in a past life?",
-    type: "website",
-    url: BASE,
-    siteName: "Your Pet's Past Life",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Your Pet's Past Life",
-    description: "Who was your pet in a past life?",
-  },
-  robots: { index: true, follow: true },
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const cookieStore = await cookies();
+  const lang: Lang = (cookieStore.get("NEXT_LOCALE")?.value as Lang) ?? "en";
+  const isKo = lang === "ko";
+
+  const title = isKo
+    ? "내 반려동물의 전생은? — AI로 알아보는 반려동물 전생"
+    : "Your Pet's Past Life — Discover who your pet was before";
+  const description = isKo
+    ? "반려동물 사진을 업로드하면 AI가 전생을 알려드려요. 무료, 즉시 확인 가능."
+    : "Upload a photo of your pet and reveal who they were in a past life. Powered by AI.";
+  const siteName = isKo ? "반려동물 전생" : "Your Pet's Past Life";
+
+  return {
+    metadataBase: new URL(BASE),
+    title,
+    description,
+    alternates: {
+      canonical: BASE,
+      languages: { en: BASE, ko: BASE },
+    },
+    openGraph: {
+      title: isKo ? "내 반려동물의 전생은?" : "Your Pet's Past Life",
+      description: isKo ? "반려동물의 전생을 AI로 알아보세요." : "Who was your pet in a past life?",
+      type: "website",
+      url: BASE,
+      siteName,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: isKo ? "내 반려동물의 전생은?" : "Your Pet's Past Life",
+      description: isKo ? "반려동물의 전생을 AI로 알아보세요." : "Who was your pet in a past life?",
+    },
+    robots: { index: true, follow: true },
+  };
+}
 
 export default async function RootLayout({
   children,
