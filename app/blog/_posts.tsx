@@ -89,7 +89,7 @@ const postsEn = [
           Whether that depth comes from a shared evolutionary journey, from
           genuine trans-life memory, or simply from the extraordinary
           attentiveness of an animal that has spent its whole existence reading
-          your face — the gaze is real, and it's worth meeting.
+          your face — the gaze is real, and it's worth meeting. For cats especially, <a href="/blog/cat-past-life-clues">seven physical clues reveal how deep that history runs</a>.
         </p>
       </>
     ),
@@ -182,7 +182,7 @@ const postsEn = [
         <p>
           If your dog checks five or more of these boxes, consider yourself
           lucky: you have a battle-tested soul keeping watch over your home.
-          They've done it before.
+          They've done it before. That dedication is part of <a href="/blog/ancient-bond-humans-and-dogs">a bond between dogs and humans that stretches back fifteen thousand years</a>.
         </p>
       </>
     ),
@@ -262,7 +262,9 @@ const postsEn = [
         </p>
         <p>
           The question isn't why your cat acts like royalty. The question is
-          why you expected otherwise.
+          why you expected otherwise. That ancient lineage also explains{" "}
+          <a href="/blog/why-cats-stare-into-empty-space">why your cat stares at blank walls at 3am</a>{" "}
+          — a habit that dates to the same era.
         </p>
       </>
     ),
@@ -309,7 +311,10 @@ const postsEn = [
           Japanese folklore, the maneki-neko (beckoning cat) draws fortune from
           an invisible source. In Celtic tradition, cats could see into the
           Otherworld. In numerous shamanic cultures across Asia and the
-          Americas, cats appear as spirit guides or boundary-walkers.
+          Americas, cats appear as spirit guides or boundary-walkers. The most
+          celebrated historical example is{" "}
+          <a href="/blog/cats-in-ancient-egypt">ancient Egypt, where cats were worshipped as sacred intermediaries</a>{" "}
+          for over three thousand years.
         </p>
         <p>
           If your cat previously lived as a shaman, a seer, a temple guardian,
@@ -420,7 +425,9 @@ const postsEn = [
           The depth of recognition that some dogs show for their humans —
           beyond training, beyond reward conditioning — may be memory. Fifteen
           thousand years is a long time to know someone. Long enough that the
-          knowing might persist across death itself.
+          knowing might persist across death itself. Some dogs carry that ancient
+          energy visibly —{" "}
+          <a href="/blog/10-signs-your-dog-was-a-warrior">ten behaviors suggest your dog may have been a warrior or guard in a previous life</a>.
         </p>
       </>
     ),
@@ -493,7 +500,10 @@ const postsEn = [
         <p>
           This is why two photos of the same breed will often produce different
           readings. The model is not applying a breed template. It is reading
-          the specific animal in the specific photograph.
+          the specific animal in the specific photograph. Eyes are particularly
+          rich with information —{" "}
+          <a href="/blog/what-your-pets-eyes-reveal">what your pet's gaze reveals about their past life</a>{" "}
+          goes deeper than breed alone.
         </p>
         <h2>The Limits</h2>
         <p>
@@ -597,7 +607,9 @@ const postsEn = [
           Understanding your pet's personality type doesn't explain them
           completely — but it gives you a framework. They are not random. Their
           tendencies have roots. And those roots may run much deeper than this
-          lifetime.
+          lifetime. For a playful illustration of these patterns,{" "}
+          <a href="/blog/famous-historical-figures-reincarnated-as-pets">seven historical figures whose personalities show up in today's pets</a>{" "}
+          puts names to the archetypes.
         </p>
       </>
     ),
@@ -687,7 +699,10 @@ const postsEn = [
         </p>
         <p>
           Whatever pet shares your home, they are carrying something forward.
-          You just have to know how to ask.
+          You just have to know how to ask. If you're wondering whether the soul
+          you sense has been here before,{" "}
+          <a href="/blog/do-pets-reincarnate">the question of whether pets actually reincarnate</a>{" "}
+          is more interesting than you might expect.
         </p>
       </>
     ),
@@ -772,7 +787,9 @@ const postsEn = [
           with the highest measured intelligence, herds anything that moves
           using tactics of containment, flanking, and sustained pressure. They
           are not playing. They are working, always working, because the flock
-          doesn't manage itself. Khan would have understood completely.
+          doesn't manage itself. Khan would have understood completely. These
+          patterns run deeper than personality quirks —{" "}
+          <a href="/blog/pet-personality-types-and-history">your pet's personality type has a historical signature that stretches back thousands of years</a>.
         </p>
       </>
     ),
@@ -871,7 +888,9 @@ const postsEn = [
         <p>
           Science and story are not enemies. Both are trying to explain the
           same behavior — they just start from different assumptions about how
-          far back the explanation needs to reach.
+          far back the explanation needs to reach. A complementary lens is{" "}
+          <a href="/blog/what-your-pets-eyes-reveal">reading your pet's past life through their eyes</a>,
+          where history runs just as deep.
         </p>
       </>
     ),
@@ -946,7 +965,9 @@ const postsEn = [
           These are anecdotes, not data. But the sheer consistency of the
           reports across cultures, languages, and decades suggests something
           worth taking seriously — even if that something turns out to be a
-          feature of human grief rather than animal souls.
+          feature of human grief rather than animal souls. The most commonly
+          reported patterns are detailed in{" "}
+          <a href="/blog/signs-deceased-pet-reincarnated">signs that your deceased pet has reincarnated as a new animal</a>.
         </p>
         <h2>The Case For Animal Reincarnation</h2>
         <p>
