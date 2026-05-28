@@ -17,7 +17,7 @@ const postsEn = [
   {
     slug: "what-your-pets-eyes-reveal",
     title: "What Your Pet's Eyes Reveal About Their Past Life",
-    image: "https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
+    image: "https://images.pexels.com/photos/1741205/pexels-photo-1741205.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
     date: "2025-05-01",
     excerpt:
       "Eyes are called the window to the soul — and for pets, they may be a window to a previous existence. Here's how to read the silent story behind your pet's gaze.",
@@ -1300,7 +1300,7 @@ const postsEn = [
   {
     slug: "pet-past-life-buddhism",
     title: "What Buddhism Says About Your Pet's Past Life",
-    image: "https://images.pexels.com/photos/158028/pexels-photo-158028.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
+    image: "https://images.pexels.com/photos/2007507/pexels-photo-2007507.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1",
     date: "2025-06-01",
     excerpt:
       "Buddhist philosophy offers profound insights into reincarnation and karma. Discover what Buddhism teaches about your pet's past life and their spiritual journey.",
