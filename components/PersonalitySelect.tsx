@@ -26,7 +26,7 @@ export function PersonalitySelect({ value, onChange, lang }: PersonalitySelectPr
     <div className="field">
       <label className="field-label">
         {t.personality[lang]}
-        <span style={{ marginLeft: "0.4rem", fontSize: "0.75rem", color: "#9CA3AF", fontWeight: 400 }}>
+        <span style={{ marginLeft: "0.4rem", fontSize: "0.75rem", color: "#6B7280", fontWeight: 400 }}>
           {t.personalityOptional[lang]}
         </span>
       </label>

@@ -11,7 +11,7 @@ export function LanguageToggle({ lang }: { lang: Lang }) {
   const btnStyle = (active: boolean): React.CSSProperties => ({
     fontSize: "0.72rem",
     fontWeight: active ? 700 : 400,
-    color: active ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.38)",
+    color: active ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.65)",
     background: "none",
     border: "none",
     cursor: active ? "default" : "pointer",

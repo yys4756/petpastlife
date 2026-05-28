@@ -137,6 +137,59 @@ export default async function PostPage({ params }: Props) {
           />
 
           <div className="prose-content">{content}</div>
+
+          <div
+            style={{
+              marginTop: "2.5rem",
+              padding: "1.5rem",
+              background: "linear-gradient(135deg, #fdf2f4 0%, #f9e8eb 100%)",
+              borderRadius: "0.75rem",
+              border: "1px solid #f0d0d5",
+              textAlign: "center",
+            }}
+          >
+            <p
+              style={{
+                fontFamily: "var(--font-italiana), Georgia, serif",
+                fontSize: "1.3rem",
+                color: "#6B1F2C",
+                margin: "0 0 0.5rem",
+                fontWeight: 400,
+              }}
+            >
+              {lang === "ko"
+                ? "반려동물의 전생이 궁금하세요?"
+                : "Curious about your pet's past life?"}
+            </p>
+            <p
+              style={{
+                fontSize: "0.875rem",
+                color: "#6B7280",
+                margin: "0 0 1.25rem",
+                lineHeight: 1.5,
+              }}
+            >
+              {lang === "ko"
+                ? "사진을 업로드하면 AI가 30초 만에 전생을 알려드려요. 무료예요."
+                : "Upload a photo for an instant AI reading — free, takes 30 seconds."}
+            </p>
+            <Link
+              href="/"
+              style={{
+                display: "inline-block",
+                padding: "0.6rem 1.5rem",
+                background: "#6B1F2C",
+                color: "#fff",
+                borderRadius: "2rem",
+                fontSize: "0.875rem",
+                fontWeight: 600,
+                textDecoration: "none",
+                letterSpacing: "0.02em",
+              }}
+            >
+              {lang === "ko" ? "전생 알아보기 →" : "Reveal Past Life →"}
+            </Link>
+          </div>
         </div>
 
         <p className="footer-note" style={{ marginTop: "1.5rem" }}>

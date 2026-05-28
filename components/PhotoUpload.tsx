@@ -70,6 +70,7 @@ export function PhotoUpload({ onPhotoSelected }: PhotoUploadProps) {
             type="file"
             accept="image/jpeg,image/png,image/webp"
             className="sr-only"
+            aria-label="Upload pet photo"
             onChange={(e) => handleFile(e.target.files?.[0])}
           />
         </div>

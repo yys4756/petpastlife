@@ -163,11 +163,11 @@ export function HomePageClient({ lang }: { lang: Lang }) {
 
         <p className="footer-note">{t.footerNote[lang]}</p>
         <p className="footer-note" style={{ marginTop: "0.5rem" }}>
-          <a href="/about" style={{ color: "rgba(255,255,255,0.5)" }}>{t.about[lang]}</a>
+          <a href="/about" style={{ color: "rgba(255,255,255,0.75)" }}>{t.about[lang]}</a>
           {" · "}
-          <a href="/privacy" style={{ color: "rgba(255,255,255,0.5)" }}>{t.privacy[lang]}</a>
+          <a href="/privacy" style={{ color: "rgba(255,255,255,0.75)" }}>{t.privacy[lang]}</a>
           {" · "}
-          <a href="/terms" style={{ color: "rgba(255,255,255,0.5)" }}>{t.terms[lang]}</a>
+          <a href="/terms" style={{ color: "rgba(255,255,255,0.75)" }}>{t.terms[lang]}</a>
         </p>
       </div>
     </main>
