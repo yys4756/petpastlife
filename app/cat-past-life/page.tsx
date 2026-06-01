@@ -3,7 +3,7 @@ import Link from "next/link";
 import { cookies } from "next/headers";
 import type { Lang } from "@/lib/translations";
 
-const BASE = "https://petpastlife.vercel.app";
+const BASE = "https://pawlabo.com";
 
 export async function generateMetadata(): Promise<Metadata> {
   const cookieStore = await cookies();

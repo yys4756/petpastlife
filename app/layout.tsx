@@ -22,7 +22,7 @@ const italiana = Italiana({
   display: "swap",
 });
 
-const BASE = "https://petpastlife.vercel.app";
+const BASE = "https://pawlabo.com";
 
 export async function generateMetadata(): Promise<Metadata> {
   const cookieStore = await cookies();

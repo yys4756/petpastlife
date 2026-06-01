@@ -4,7 +4,7 @@ import type { Lang } from "@/lib/translations";
 import { HomePageClient } from "./HomePageClient";
 import { posts } from "./blog/_posts";
 
-const BASE = "https://petpastlife.vercel.app";
+const BASE = "https://pawlabo.com";
 
 export async function generateMetadata(): Promise<Metadata> {
   const cookieStore = await cookies();

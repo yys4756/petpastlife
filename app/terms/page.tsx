@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { translations, type Lang } from "@/lib/translations";
 
-const BASE = "https://petpastlife.vercel.app";
+const BASE = "https://pawlabo.com";
 
 export const metadata: Metadata = {
   title: "Terms of Service — Paw Labo",

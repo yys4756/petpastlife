@@ -5,7 +5,7 @@ import { cookies } from "next/headers";
 import { posts, getPost } from "../_posts";
 import { translations, type Lang } from "@/lib/translations";
 
-const BASE = "https://petpastlife.vercel.app";
+const BASE = "https://pawlabo.com";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -75,11 +75,11 @@ export default async function PostPage({ params }: Props) {
     publisher: {
       "@type": "Organization",
       name: "Paw Labo",
-      url: "https://petpastlife.vercel.app",
+      url: "https://pawlabo.com",
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://petpastlife.vercel.app/blog/${post.slug}`,
+      "@id": `https://pawlabo.com/blog/${post.slug}`,
     },
   };
 

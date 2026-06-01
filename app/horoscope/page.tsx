@@ -3,7 +3,7 @@ import { cookies } from "next/headers";
 import type { Lang } from "@/lib/translations";
 import { HoroscopePageClient } from "./HoroscopePageClient";
 
-const BASE = "https://petpastlife.vercel.app";
+const BASE = "https://pawlabo.com";
 
 export const metadata: Metadata = {
   title: "Pet Horoscope | Paw Labo — Daily AI Zodiac Reading",
