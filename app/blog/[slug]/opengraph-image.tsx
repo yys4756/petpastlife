@@ -10,7 +10,7 @@ type Props = { params: Promise<{ slug: string }> };
 export default async function OgImage({ params }: Props) {
   const { slug } = await params;
   const post = getPost(slug);
-  const title = post?.title ?? "Pet Past Life Blog";
+  const title = post?.title ?? "Paw Labo Blog";
   const excerpt = post?.excerpt ?? "Stories about pets and past lives";
 
   return new ImageResponse(
@@ -40,7 +40,7 @@ export default async function OgImage({ params }: Props) {
           }}
         >
           <div style={{ fontSize: 24, color: "#9CA3AF", marginBottom: 24, display: "flex" }}>
-            Pet Past Life · Blog
+            Paw Labo · Blog
           </div>
           <div
             style={{

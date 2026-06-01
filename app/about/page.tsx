@@ -5,20 +5,21 @@ import { translations, type Lang } from "@/lib/translations";
 const BASE = "https://petpastlife.vercel.app";
 
 export const metadata: Metadata = {
-  title: "About — Pet Past Life",
+  title: "About Paw Labo — AI Tools for Pet Owners",
   description:
-    "Learn how Pet Past Life uses AI to generate fun fictional past-life stories for your pet.",
+    "Paw Labo uses AI to generate fun, fictional past-life stories and horoscopes for your pet. Free, instant, and surprisingly accurate.",
   alternates: { canonical: `${BASE}/about` },
   openGraph: {
-    title: "About — Pet Past Life",
-    description: "Learn how Pet Past Life uses AI to generate fun fictional past-life stories for your pet.",
+    title: "About Paw Labo — AI Tools for Pet Owners",
+    description: "Paw Labo uses AI to generate fun fictional past-life stories and horoscopes for your pet.",
     url: `${BASE}/about`,
     type: "website",
+    siteName: "Paw Labo",
   },
   twitter: {
     card: "summary_large_image",
-    title: "About — Pet Past Life",
-    description: "Learn how Pet Past Life uses AI to generate fun fictional past-life stories for your pet.",
+    title: "About Paw Labo — AI Tools for Pet Owners",
+    description: "Paw Labo uses AI to generate fun fictional past-life stories and horoscopes for your pet.",
   },
 };
 

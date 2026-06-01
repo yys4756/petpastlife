@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = isKo ? (post.titleKo ?? post.title) : post.title;
   const description = isKo ? (post.excerptKo ?? post.excerpt) : post.excerpt;
-  const siteName = isKo ? "반려동물 전생" : "Pet Past Life";
+  const siteName = isKo ? "반려동물 전생" : "Paw Labo";
   const url = `${BASE}/blog/${slug}`;
 
   return {
@@ -71,10 +71,10 @@ export default async function PostPage({ params }: Props) {
     description: post.excerpt,
     datePublished: new Date(post.date).toISOString(),
     dateModified: new Date(post.date).toISOString(),
-    author: { "@type": "Organization", name: "Pet Past Life" },
+    author: { "@type": "Organization", name: "Paw Labo" },
     publisher: {
       "@type": "Organization",
-      name: "Pet Past Life",
+      name: "Paw Labo",
       url: "https://petpastlife.vercel.app",
     },
     mainEntityOfPage: {

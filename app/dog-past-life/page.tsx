@@ -11,11 +11,11 @@ export async function generateMetadata(): Promise<Metadata> {
   const isKo = lang === "ko";
 
   const title = isKo
-    ? "강아지 전생 알아보기 — AI로 밝히는 내 강아지의 전생"
-    : "Dog Past Life — Reveal Who Your Dog Was in a Past Life";
+    ? "강아지 전생 알아보기 | Paw Labo — AI로 밝히는 내 강아지의 전생"
+    : "Dog Past Life | Paw Labo — Reveal Who Your Dog Was";
   const description = isKo
-    ? "우리 강아지의 전생이 궁금하세요? 사진을 업로드하면 AI가 역사 속 전생 이야기를 30초 만에 알려드려요. 무료."
-    : "Discover your dog's past life with AI. Upload a photo and we'll reveal who they were — warrior, healer, noble, or wanderer. Free and instant.";
+    ? "우리 강아지의 전생이 궁금하세요? 사진을 업로드하면 AI가 역사 속 전생 이야기를 30초 만에 알려드려요. 무료. Paw Labo."
+    : "Discover your dog's past life with AI. Upload a photo and reveal who they were — warrior, healer, noble, or wanderer. Free and instant. Paw Labo.";
   const url = `${BASE}/dog-past-life`;
 
   return {
@@ -25,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
       canonical: url,
       languages: { en: url, ko: url },
     },
-    openGraph: { title, description, url, type: "website" },
+    openGraph: { title, description, url, type: "website", siteName: "Paw Labo" },
     twitter: { card: "summary_large_image", title, description },
   };
 }

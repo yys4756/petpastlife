@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 import { PhotoUpload } from "@/components/PhotoUpload";
 import { GenderSelect, type Gender } from "@/components/GenderSelect";
 import { PersonalitySelect, type Personality } from "@/components/PersonalitySelect";
@@ -9,21 +10,27 @@ import { translations, type Lang } from "@/lib/translations";
 
 const t = translations.home;
 
-export function HomePageClient({ lang }: { lang: Lang }) {
+type RecentPost = { slug: string; title: string; titleKo: string };
+type Step = "upload" | "details" | "submitting";
+
+export function HomePageClient({
+  lang,
+  recentPosts,
+}: {
+  lang: Lang;
+  recentPosts: RecentPost[];
+}) {
+  const [step, setStep] = useState<Step>("upload");
   const [photo, setPhoto] = useState<File | null>(null);
   const [photoUrl, setPhotoUrl] = useState<string | null>(null);
   const [name, setName] = useState("");
   const [gender, setGender] = useState<Gender | null>(null);
   const [personality, setPersonality] = useState<Personality | null>(null);
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [loadingIndex, setLoadingIndex] = useState(0);
   const [result, setResult] = useState<PastLifeData | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const LOADING_MESSAGES = t.loadingMessages[lang];
-
-  const canSubmit = Boolean(photo && name.trim() && gender && !isSubmitting);
 
   const handlePhotoChange = (file: File | null) => {
     setPhotoUrl((prev) => {
@@ -41,7 +48,7 @@ export function HomePageClient({ lang }: { lang: Lang }) {
   }, []);
 
   useEffect(() => {
-    if (!isSubmitting) {
+    if (step !== "submitting") {
       setLoadingIndex(0);
       return;
     }
@@ -49,15 +56,14 @@ export function HomePageClient({ lang }: { lang: Lang }) {
       setLoadingIndex((i) => Math.min(i + 1, LOADING_MESSAGES.length - 1));
     }, 12000);
     return () => clearInterval(interval);
-  }, [isSubmitting, LOADING_MESSAGES.length]);
+  }, [step, LOADING_MESSAGES.length]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!canSubmit || !photo || !gender) return;
+    if (!photo || !name.trim() || !gender) return;
 
-    setIsSubmitting(true);
+    setStep("submitting");
     setError(null);
-    setResult(null);
 
     try {
       const formData = new FormData();
@@ -66,21 +72,14 @@ export function HomePageClient({ lang }: { lang: Lang }) {
       formData.append("gender", gender);
       if (personality) formData.append("personality", personality);
 
-      const res = await fetch("/api/past-life", {
-        method: "POST",
-        body: formData,
-      });
-
+      const res = await fetch("/api/past-life", { method: "POST", body: formData });
       const json = await res.json();
-      if (!res.ok) {
-        throw new Error(json.error ?? "Something went wrong");
-      }
+      if (!res.ok) throw new Error(json.error ?? "Something went wrong");
       setResult(json.result);
     } catch (err) {
       const msg = err instanceof Error ? err.message : "Unknown error";
       setError(msg);
-    } finally {
-      setIsSubmitting(false);
+      setStep("details");
     }
   };
 
@@ -91,6 +90,7 @@ export function HomePageClient({ lang }: { lang: Lang }) {
     setGender(null);
     setPersonality(null);
     handlePhotoChange(null);
+    setStep("upload");
   };
 
   if (result) {
@@ -109,60 +109,115 @@ export function HomePageClient({ lang }: { lang: Lang }) {
     );
   }
 
+  const isKo = lang === "ko";
+
   return (
-    <main className="page-wrap">
-      <div className="page-inner fade-in">
-        <div className="card">
+    <main className="page-wrap" style={{ alignItems: "flex-start" }}>
+      <div className="page-inner fade-in" style={{ width: "100%", maxWidth: "36rem", margin: "0 auto", paddingBottom: "2rem" }}>
+
+        {/* Hero */}
+        <div className="card" style={{ marginBottom: "1rem" }}>
           <header className="card-header">
-            <div style={{ fontSize: "2.5rem", lineHeight: 1, marginBottom: "1rem" }}>🐾</div>
-            <h1 className="title" style={{ fontSize: "2rem" }}>{t.title[lang]}</h1>
+            <h1 className="title" style={{ fontSize: "1.75rem" }}>{t.title[lang]}</h1>
             <p className="subtitle">{t.subtitle[lang]}</p>
           </header>
 
-          <form className="form" onSubmit={handleSubmit}>
-            <PhotoUpload onPhotoSelected={handlePhotoChange} />
+          {step === "upload" && (
+            <>
+              <PhotoUpload onPhotoSelected={handlePhotoChange} />
+              <button
+                type="button"
+                onClick={() => setStep("details")}
+                disabled={!photo}
+                className="cta-button"
+                style={{ marginTop: "1rem" }}
+              >
+                {t.cta[lang]}
+              </button>
+            </>
+          )}
 
-            <div className="field">
-              <label htmlFor="name" className="field-label">
-                {t.petName[lang]}
-              </label>
-              <input
-                id="name"
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                placeholder={t.petNamePlaceholder[lang]}
-                maxLength={40}
-                disabled={isSubmitting}
-                className="text-input"
-              />
-            </div>
-
-            <GenderSelect value={gender} onChange={setGender} lang={lang} />
-
-            <PersonalitySelect value={personality} onChange={setPersonality} lang={lang} />
-
-            {error && <div className="error-banner">{error}</div>}
-
-            <button
-              type="submit"
-              disabled={!canSubmit}
-              className={`cta-button${isSubmitting ? " is-loading" : ""}`}
-            >
-              {isSubmitting ? (
-                <span className="loading-text">
-                  <span className="loading-dot" />
-                  {LOADING_MESSAGES[loadingIndex]}
-                </span>
-              ) : (
-                t.cta[lang]
-              )}
-            </button>
-          </form>
+          {(step === "details" || step === "submitting") && (
+            <form className="form" onSubmit={handleSubmit}>
+              <div className="field">
+                <label htmlFor="name" className="field-label">{t.petName[lang]}</label>
+                <input
+                  id="name"
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder={t.petNamePlaceholder[lang]}
+                  maxLength={40}
+                  disabled={step === "submitting"}
+                  className="text-input"
+                  autoFocus
+                />
+              </div>
+              <GenderSelect value={gender} onChange={setGender} lang={lang} />
+              <PersonalitySelect value={personality} onChange={setPersonality} lang={lang} />
+              {error && <div className="error-banner">{error}</div>}
+              <button
+                type="submit"
+                disabled={!name.trim() || !gender || step === "submitting"}
+                className={`cta-button${step === "submitting" ? " is-loading" : ""}`}
+              >
+                {step === "submitting" ? (
+                  <span className="loading-text">
+                    <span className="loading-dot" />
+                    {LOADING_MESSAGES[loadingIndex]}
+                  </span>
+                ) : (
+                  t.cta[lang]
+                )}
+              </button>
+            </form>
+          )}
         </div>
 
-        <p className="footer-note">{t.footerNote[lang]}</p>
-        <p className="footer-note" style={{ marginTop: "0.5rem" }}>
+        {/* Tools */}
+        <div className="card" style={{ marginBottom: "1rem" }}>
+          <p style={{ fontSize: "0.7rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#9CA3AF", margin: "0 0 0.75rem" }}>
+            {isKo ? "더 많은 AI 도구" : "More AI Tools"}
+          </p>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
+            <Link href="/horoscope" style={{ textDecoration: "none" }}>
+              <div style={{ border: "1px solid rgba(255,255,255,0.12)", borderRadius: "0.5rem", padding: "0.875rem", display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.875rem", color: "rgba(255,255,255,0.85)", background: "rgba(255,255,255,0.05)" }}>
+                ⭐ {isKo ? "오늘의 운세" : "Horoscope"}
+              </div>
+            </Link>
+            <div style={{ border: "1px solid rgba(255,255,255,0.06)", borderRadius: "0.5rem", padding: "0.875rem", display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.875rem", color: "rgba(255,255,255,0.3)" }}>
+              + {isKo ? "곧 추가" : "Coming soon"}
+            </div>
+          </div>
+        </div>
+
+        {/* Blog */}
+        <div className="card" style={{ marginBottom: "1.5rem" }}>
+          <p style={{ fontSize: "0.7rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#9CA3AF", margin: "0 0 0.25rem" }}>
+            {isKo ? "블로그" : "Blog"}
+          </p>
+          {recentPosts.map((post, i) => (
+            <Link
+              key={post.slug}
+              href={`/blog/${post.slug}`}
+              style={{
+                textDecoration: "none",
+                display: "flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                padding: "0.5625rem 0",
+                borderTop: i > 0 ? "1px solid rgba(255,255,255,0.08)" : undefined,
+                fontSize: "0.8125rem",
+                color: "rgba(255,255,255,0.65)",
+              }}
+            >
+              <span style={{ flex: 1 }}>{isKo ? post.titleKo : post.title}</span>
+              <span style={{ color: "rgba(255,255,255,0.3)", fontSize: "0.75rem", flexShrink: 0 }}>→</span>
+            </Link>
+          ))}
+        </div>
+
+        <p className="footer-note">
           <a href="/about" style={{ color: "rgba(255,255,255,0.75)" }}>{t.about[lang]}</a>
           {" · "}
           <a href="/privacy" style={{ color: "rgba(255,255,255,0.75)" }}>{t.privacy[lang]}</a>

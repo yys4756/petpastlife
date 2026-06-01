@@ -242,7 +242,7 @@ export async function POST(req: NextRequest) {
                 display: "flex",
               }}
             >
-              petpastlife.com
+              pawlabo.com
             </div>
           </div>
         </div>

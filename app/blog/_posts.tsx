@@ -442,7 +442,7 @@ const postsEn = [
     content: (
       <>
         <p>
-          When you upload your pet's photo to Pet Past Life, something
+          When you upload your pet's photo to Paw Labo, something
           interesting happens before any story is generated. A large AI model —
           specifically Google's Gemma 4 31B, a multimodal model capable of
           analyzing both images and text — examines the photograph in detail.

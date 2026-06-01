@@ -5,12 +5,12 @@ import { translations, type Lang } from "@/lib/translations";
 const BASE = "https://petpastlife.vercel.app";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy — Pet Past Life",
+  title: "Privacy Policy — Paw Labo",
   description:
-    "Pet Past Life privacy policy. We do not store your photos or pet data. Learn how your information is handled.",
+    "Paw Labo privacy policy. We do not store your photos or pet data. Learn how your information is handled.",
   alternates: { canonical: `${BASE}/privacy` },
   openGraph: {
-    title: "Privacy Policy — Pet Past Life",
+    title: "Privacy Policy — Paw Labo",
     description: "We do not store your photos or pet data.",
     url: `${BASE}/privacy`,
     type: "website",

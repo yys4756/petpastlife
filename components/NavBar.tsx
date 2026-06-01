@@ -24,8 +24,9 @@ export function NavBar({ lang }: { lang: Lang }) {
       maxWidth: "48rem",
       margin: "0 auto",
     }}>
-      <Link href="/" style={{ textDecoration: "none" }}>
-        <span style={{ fontSize: "1.5rem" }}>🐾</span>
+      <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: "0.5rem" }}>
+        <span style={{ fontSize: "1.25rem" }}>🐾</span>
+        <span style={{ fontWeight: 600, fontSize: "1rem", color: "white" }}>Paw Labo</span>
       </Link>
 
       <div style={{ display: "flex", gap: "0.25rem" }}>

@@ -11,10 +11,12 @@ export async function generateMetadata(): Promise<Metadata> {
   const lang: Lang = (cookieStore.get("NEXT_LOCALE")?.value as Lang) ?? "en";
   const isKo = lang === "ko";
 
-  const title = isKo ? "블로그 — 반려동물 전생" : "Blog — Pet Past Life";
+  const title = isKo
+    ? "Paw Labo 블로그 — 반려동물 전생, 행동, 별자리"
+    : "Paw Labo Blog — Pet Past Lives, Behavior & Horoscopes";
   const description = isKo
-    ? "반려동물과 전생에 관한 이야기, 과학, 역사를 담은 블로그."
-    : "Stories, science, and history about pets, past lives, and the ancient bond between animals and humans.";
+    ? "반려동물과 전생에 관한 이야기, 과학, 역사를 담은 블로그. Paw Labo."
+    : "Stories, science, and history about pets, past lives, and the ancient bond between animals and humans. Paw Labo.";
 
   return {
     title,
@@ -23,7 +25,7 @@ export async function generateMetadata(): Promise<Metadata> {
       canonical: `${BASE}/blog`,
       languages: { en: `${BASE}/blog`, ko: `${BASE}/blog` },
     },
-    openGraph: { title, description, url: `${BASE}/blog`, type: "website" },
+    openGraph: { title, description, url: `${BASE}/blog`, type: "website", siteName: "Paw Labo" },
     twitter: { card: "summary_large_image", title, description },
   };
 }
