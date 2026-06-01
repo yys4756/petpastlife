@@ -182,7 +182,7 @@ export function HomePageClient({
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
             <Link href="/horoscope" style={{ textDecoration: "none" }}>
               <div style={{ border: "1px solid #E5E7EB", borderRadius: "0.5rem", padding: "0.875rem", display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.875rem", color: "#374151" }}>
-                ⭐ {isKo ? "오늘의 운세" : "Horoscope"}
+                ⭐ {isKo ? "내 반려동물 운세" : "My Pet's Horoscope"}
               </div>
             </Link>
             <div style={{ border: "1px solid #E5E7EB", borderRadius: "0.5rem", padding: "0.875rem", display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.875rem", color: "#D1D5DB" }}>
