@@ -181,11 +181,11 @@ export function HomePageClient({
           </p>
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
             <Link href="/horoscope" style={{ textDecoration: "none" }}>
-              <div style={{ border: "1px solid rgba(255,255,255,0.12)", borderRadius: "0.5rem", padding: "0.875rem", display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.875rem", color: "rgba(255,255,255,0.85)", background: "rgba(255,255,255,0.05)" }}>
+              <div style={{ border: "1px solid #E5E7EB", borderRadius: "0.5rem", padding: "0.875rem", display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.875rem", color: "#374151" }}>
                 ⭐ {isKo ? "오늘의 운세" : "Horoscope"}
               </div>
             </Link>
-            <div style={{ border: "1px solid rgba(255,255,255,0.06)", borderRadius: "0.5rem", padding: "0.875rem", display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.875rem", color: "rgba(255,255,255,0.3)" }}>
+            <div style={{ border: "1px solid #E5E7EB", borderRadius: "0.5rem", padding: "0.875rem", display: "flex", alignItems: "center", gap: "0.5rem", fontSize: "0.875rem", color: "#D1D5DB" }}>
               + {isKo ? "곧 추가" : "Coming soon"}
             </div>
           </div>
@@ -206,13 +206,13 @@ export function HomePageClient({
                 alignItems: "center",
                 gap: "0.5rem",
                 padding: "0.5625rem 0",
-                borderTop: i > 0 ? "1px solid rgba(255,255,255,0.08)" : undefined,
+                borderTop: i > 0 ? "1px solid #F3F4F6" : undefined,
                 fontSize: "0.8125rem",
-                color: "rgba(255,255,255,0.65)",
+                color: "#6B7280",
               }}
             >
               <span style={{ flex: 1 }}>{isKo ? post.titleKo : post.title}</span>
-              <span style={{ color: "rgba(255,255,255,0.3)", fontSize: "0.75rem", flexShrink: 0 }}>→</span>
+              <span style={{ color: "#9CA3AF", fontSize: "0.75rem", flexShrink: 0 }}>→</span>
             </Link>
           ))}
         </div>
