@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const runtime = "edge";
-export const alt = "Your Pet's Past Life — Discover who your pet was before";
+export const alt = "Paw Labo — Discover Your Pet's Past Life with AI";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -54,7 +54,7 @@ export default function OgImage() {
               display: "flex",
             }}
           >
-            Your Pet&apos;s Past Life
+            Paw Labo
           </div>
 
           {/* Tagline */}

@@ -21,6 +21,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title,
     description,
+    keywords: isKo
+      ? ["고양이 전생", "고양이 전생 테스트", "AI 고양이", "고양이 과거생", "무료 고양이 운세"]
+      : ["cat past life", "cat past life test", "AI cat reading", "what was my cat in a past life", "free cat reading"],
     alternates: {
       canonical: url,
       languages: { en: url, ko: url },

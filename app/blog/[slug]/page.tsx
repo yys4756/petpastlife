@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = isKo ? (post.titleKo ?? post.title) : post.title;
   const description = isKo ? (post.excerptKo ?? post.excerpt) : post.excerpt;
-  const siteName = isKo ? "반려동물 전생" : "Paw Labo";
+  const siteName = "Paw Labo";
   const url = `${BASE}/blog/${slug}`;
 
   return {

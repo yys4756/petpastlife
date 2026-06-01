@@ -35,7 +35,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const description = isKo
     ? "반려동물 사진을 업로드하면 AI가 전생을 알려드려요. 무료, 즉시 확인 가능."
     : "Upload a photo of your pet and reveal who they were in a past life. Powered by AI.";
-  const siteName = isKo ? "반려동물 전생" : "Your Pet's Past Life";
+  const siteName = "Paw Labo";
 
   return {
     metadataBase: new URL(BASE),
@@ -110,6 +110,13 @@ export default async function RootLayout({
                   operatingSystem: "Web",
                   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
                   description: "AI-powered past life story generator for pets.",
+                },
+                {
+                  "@type": "Organization",
+                  "@id": `${BASE}/#org`,
+                  name: "Paw Labo",
+                  url: BASE,
+                  sameAs: [`${BASE}`],
                 },
               ],
             }),

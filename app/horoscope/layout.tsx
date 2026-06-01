@@ -23,6 +23,9 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     title,
     description,
+    keywords: isKo
+      ? ["반려동물 운세", "강아지 별자리", "고양이 별자리", "펫 운세", "반려동물 별자리 운세", "무료 운세"]
+      : ["pet horoscope", "dog zodiac", "cat zodiac", "pet astrology", "daily pet forecast", "free pet horoscope"],
     alternates: {
       canonical: `${BASE}/horoscope`,
       languages: { en: `${BASE}/horoscope`, ko: `${BASE}/horoscope` },
