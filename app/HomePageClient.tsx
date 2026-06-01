@@ -215,6 +215,21 @@ export function HomePageClient({
               <span style={{ color: "#9CA3AF", fontSize: "0.75rem", flexShrink: 0 }}>→</span>
             </Link>
           ))}
+          <Link
+            href="/blog"
+            style={{
+              textDecoration: "none",
+              display: "block",
+              textAlign: "center",
+              padding: "0.5rem 0 0.25rem",
+              borderTop: "1px solid #F3F4F6",
+              fontSize: "0.75rem",
+              color: "#9CA3AF",
+              marginTop: "0.25rem",
+            }}
+          >
+            {isKo ? "더보기 →" : "See all posts →"}
+          </Link>
         </div>
 
         <p className="footer-note">
