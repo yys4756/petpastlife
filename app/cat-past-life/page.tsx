@@ -26,7 +26,6 @@ export async function generateMetadata(): Promise<Metadata> {
       : ["cat past life", "cat past life test", "AI cat reading", "what was my cat in a past life", "free cat reading"],
     alternates: {
       canonical: url,
-      languages: { en: url, ko: url },
     },
     openGraph: { title, description, url, type: "website", siteName: "Paw Labo" },
     twitter: { card: "summary_large_image", title, description },

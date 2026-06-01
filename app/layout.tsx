@@ -43,7 +43,6 @@ export async function generateMetadata(): Promise<Metadata> {
     description,
     alternates: {
       canonical: BASE,
-      languages: { en: BASE, ko: BASE },
     },
     openGraph: {
       title: isKo ? "내 반려동물의 전생은?" : "Your Pet's Past Life",

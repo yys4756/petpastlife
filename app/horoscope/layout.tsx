@@ -28,7 +28,6 @@ export async function generateMetadata(): Promise<Metadata> {
       : ["pet horoscope", "dog zodiac", "cat zodiac", "pet astrology", "daily pet forecast", "free pet horoscope"],
     alternates: {
       canonical: `${BASE}/horoscope`,
-      languages: { en: `${BASE}/horoscope`, ko: `${BASE}/horoscope` },
     },
     openGraph: {
       title: ogTitle,

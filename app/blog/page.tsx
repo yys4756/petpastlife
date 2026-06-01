@@ -24,7 +24,6 @@ export async function generateMetadata(): Promise<Metadata> {
     description,
     alternates: {
       canonical: `${BASE}/blog`,
-      languages: { en: `${BASE}/blog`, ko: `${BASE}/blog` },
     },
     openGraph: { title, description, url: `${BASE}/blog`, type: "website", siteName: "Paw Labo" },
     twitter: { card: "summary_large_image", title, description },

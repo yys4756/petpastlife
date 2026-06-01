@@ -30,7 +30,6 @@ export async function generateMetadata(): Promise<Metadata> {
       : ["pet past life", "cat past life", "dog past life", "AI pet reading", "past life test", "free pet horoscope"],
     alternates: {
       canonical: BASE,
-      languages: { en: BASE, ko: BASE },
     },
     openGraph: {
       title: ogTitle,
