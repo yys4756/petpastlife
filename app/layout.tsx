@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
 import { Outfit, Italiana } from "next/font/google";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { NavBar } from "@/components/NavBar";
 import { LanguageToggle } from "@/components/LanguageToggle";
@@ -87,6 +88,13 @@ export default async function RootLayout({
           <LanguageToggle lang={lang} />
         </div>
         <Analytics />
+        <Script src="https://www.googletagmanager.com/gtag/js?id=G-8Y2554H952" strategy="afterInteractive" />
+        <Script id="gtag-init" strategy="afterInteractive">{`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-8Y2554H952');
+        `}</Script>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
