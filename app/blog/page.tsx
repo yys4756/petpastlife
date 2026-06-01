@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { cookies } from "next/headers";
 import { posts } from "./_posts";
 import { translations, type Lang } from "@/lib/translations";
@@ -56,12 +57,12 @@ export default async function BlogPage() {
                 <div style={{ display: "flex", gap: "1rem", alignItems: "flex-start" }}>
                   {post.image && (
                     <Link href={`/blog/${post.slug}`} style={{ flexShrink: 0 }}>
-                      <img
+                      <Image
                         src={post.image}
                         alt={lang === "ko" ? post.titleKo : post.title}
+                        width={90}
+                        height={68}
                         style={{
-                          width: "90px",
-                          height: "68px",
                           objectFit: "cover",
                           borderRadius: "0.375rem",
                           display: "block",

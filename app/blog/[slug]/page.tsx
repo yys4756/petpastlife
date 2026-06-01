@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { cookies } from "next/headers";
 import { posts, getPost } from "../_posts";
 import { translations, type Lang } from "@/lib/translations";
@@ -137,9 +138,12 @@ export default async function PostPage({ params }: Props) {
           />
 
           {post.image && (
-            <img
+            <Image
               src={post.image}
               alt={title}
+              width={800}
+              height={260}
+              priority
               style={{
                 width: "100%",
                 height: "260px",
