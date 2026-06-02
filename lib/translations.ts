@@ -33,6 +33,7 @@ export const translations = {
     personalityTimid: { en: "Timid", ko: "소심" },
     personalityBold: { en: "Bold", ko: "대담" },
     cta: { en: "Reveal Past Life", ko: "전생 밝혀보기" },
+    photoPrivacyNote: { en: "Photos are not stored on our servers.", ko: "사진은 서버에 저장되지 않습니다." },
     footerNote: { en: "For entertainment only · Free forever", ko: "오락 목적 전용 · 영원히 무료" },
     about: { en: "About", ko: "소개" },
     privacy: { en: "Privacy", ko: "개인정보처리방침" },

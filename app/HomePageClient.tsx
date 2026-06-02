@@ -125,6 +125,9 @@ export function HomePageClient({
           {step === "upload" && (
             <>
               <PhotoUpload onPhotoSelected={handlePhotoChange} />
+              <p style={{ fontSize: "0.75rem", color: "#9CA3AF", marginTop: "0.5rem", marginBottom: 0, textAlign: "center" }}>
+                {t.photoPrivacyNote[lang]}
+              </p>
               <button
                 type="button"
                 onClick={() => setStep("details")}
