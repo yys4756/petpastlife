@@ -137,6 +137,9 @@ export function HomePageClient({
               >
                 {t.cta[lang]}
               </button>
+              <p style={{ fontSize: "0.75rem", color: "#9CA3AF", marginTop: "0.5rem", marginBottom: 0, textAlign: "center" }}>
+                {t.freeNote[lang]}
+              </p>
             </>
           )}
 
