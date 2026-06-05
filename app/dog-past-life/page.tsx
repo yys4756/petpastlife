@@ -84,20 +84,50 @@ export default async function DogPastLifePage() {
   const isKo = lang === "ko";
 
   const faq = isKo ? faqKo : faqEn;
+  const url = `${BASE}/dog-past-life`;
 
-  const faqSchema = {
+  const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqEn.map((item) => ({
-      "@type": "Question",
-      name: item.q,
-      acceptedAnswer: { "@type": "Answer", text: item.a },
-    })),
+    "@graph": [
+      {
+        "@type": "FAQPage",
+        mainEntity: faq.map((item) => ({
+          "@type": "Question",
+          name: item.q,
+          acceptedAnswer: { "@type": "Answer", text: item.a },
+        })),
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: isKo ? "홈" : "Home", item: BASE },
+          { "@type": "ListItem", position: 2, name: isKo ? "강아지 전생" : "Dog Past Life", item: url },
+        ],
+      },
+      {
+        "@type": "WebApplication",
+        name: "Paw Labo",
+        url,
+        applicationCategory: "EntertainmentApplication",
+        operatingSystem: "Web",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+        description: isKo
+          ? "강아지 사진을 업로드하면 AI가 역사 속 전생 이야기를 알려주는 무료 도구."
+          : "A free AI tool that reveals your dog's historical past life from a photo.",
+      },
+    ],
   };
 
   return (
     <main className="page-wrap" style={{ alignItems: "flex-start", paddingTop: "4rem" }}>
       <div style={{ width: "100%", maxWidth: "42rem", margin: "0 auto" }}>
+
+        {/* Breadcrumb */}
+        <nav aria-label="Breadcrumb" style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.6)", marginBottom: "1rem" }}>
+          <Link href="/" style={{ color: "rgba(255,255,255,0.75)" }}>{isKo ? "홈" : "Home"}</Link>
+          {" › "}
+          <span style={{ color: "rgba(255,255,255,0.9)" }}>{isKo ? "강아지 전생" : "Dog Past Life"}</span>
+        </nav>
 
         {/* Hero */}
         <div className="card" style={{ marginBottom: "1.5rem" }}>
@@ -297,7 +327,7 @@ export default async function DogPastLifePage() {
 
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
     </main>
   );
