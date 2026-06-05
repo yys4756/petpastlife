@@ -64,6 +64,11 @@ export default async function PostPage({ params }: Props) {
   const content = lang === "ko" ? (post.contentKo ?? post.content) : post.content;
   const locale = lang === "ko" ? "ko-KR" : "en-US";
 
+  const currentIndex = posts.findIndex((p) => p.slug === slug);
+  const related = [1, 2, 3]
+    .map((offset) => posts[(currentIndex + offset) % posts.length])
+    .filter((p) => p.slug !== slug);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -209,6 +214,72 @@ export default async function PostPage({ params }: Props) {
             </Link>
           </div>
         </div>
+
+        {related.length > 0 && (
+          <div style={{ marginTop: "2.5rem" }}>
+            <h2
+              style={{
+                fontFamily: "var(--font-italiana), Georgia, serif",
+                fontSize: "1.5rem",
+                color: "#fff",
+                fontWeight: 400,
+                margin: "0 0 1.25rem",
+                textAlign: "center",
+              }}
+            >
+              {lang === "ko" ? "더 읽어보기" : "Keep Reading"}
+            </h2>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
+                gap: "1rem",
+              }}
+            >
+              {related.map((p) => (
+                <Link
+                  key={p.slug}
+                  href={`/blog/${p.slug}`}
+                  style={{ textDecoration: "none", display: "block" }}
+                >
+                  <div
+                    className="card"
+                    style={{ padding: "0.75rem", height: "100%" }}
+                  >
+                    {p.image && (
+                      <Image
+                        src={p.image}
+                        alt={lang === "ko" ? (p.titleKo ?? p.title) : p.title}
+                        width={400}
+                        height={120}
+                        style={{
+                          width: "100%",
+                          height: "100px",
+                          objectFit: "cover",
+                          borderRadius: "0.4rem",
+                          marginBottom: "0.6rem",
+                          display: "block",
+                        }}
+                      />
+                    )}
+                    <span
+                      style={{
+                        fontFamily: "var(--font-italiana), Georgia, serif",
+                        fontSize: "1rem",
+                        lineHeight: 1.3,
+                        color: "#1F2937",
+                        fontWeight: 400,
+                        display: "block",
+                      }}
+                    >
+                      {lang === "ko" ? (p.titleKo ?? p.title) : p.title}
+                    </span>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        )}
 
         <p className="footer-note" style={{ marginTop: "1.5rem" }}>
           <Link href="/blog" style={{ color: "rgba(255,255,255,0.6)" }}>
