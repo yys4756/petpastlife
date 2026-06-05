@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useRef } from "react";
+import Link from "next/link";
+import type { Lang } from "@/lib/translations";
 
 export interface PastLifeData {
   character_name: string;
@@ -19,6 +21,8 @@ interface ResultCardProps {
   photoUrl: string | null;
   photoFile: File | null;
   onReset: () => void;
+  lang: Lang;
+  recentPosts: { slug: string; title: string; titleKo: string }[];
 }
 
 // ───────────────────────────────────────────
@@ -79,6 +83,8 @@ export function ResultCard({
   photoUrl,
   photoFile,
   onReset,
+  lang,
+  recentPosts,
 }: ResultCardProps) {
   const [busy, setBusy] = useState<"idle" | "share" | "download">("idle");
   // blob 캐싱 — Share/Download 둘 다 같은 PNG 재사용
@@ -109,6 +115,7 @@ export function ResultCard({
   }
 
   const safeFilename = `${petName.toLowerCase().replace(/\s+/g, "-")}-past-life.png`;
+  const isKo = lang === "ko";
 
   async function handleShare() {
     if (busy !== "idle") return;
@@ -168,7 +175,10 @@ export function ResultCard({
     }
   }
 
+  const funnelPosts = recentPosts.slice(0, 2);
+
   return (
+    <>
     <div className="card">
       <header className="result-header">
         {photoUrl && (
@@ -239,8 +249,54 @@ export function ResultCard({
       </div>
 
       <button type="button" onClick={onReset} className="try-again-button">
-        Try another pet
+        {isKo ? "다른 반려동물 해보기" : "Try another pet"}
       </button>
     </div>
+
+    {/* Funnel — keep the visitor exploring at peak engagement */}
+    <div className="card" style={{ marginTop: "1rem" }}>
+      <p style={{ fontSize: "0.7rem", letterSpacing: "0.15em", textTransform: "uppercase", color: "#9CA3AF", margin: "0 0 0.75rem" }}>
+        {isKo ? "온 김에 더 둘러보세요" : "While you're here"}
+      </p>
+
+      <Link href="/horoscope" style={{ textDecoration: "none" }}>
+        <div
+          style={{
+            border: "1px solid #E5E7EB",
+            borderRadius: "0.5rem",
+            padding: "0.875rem",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            fontSize: "0.875rem",
+            color: "#374151",
+            marginBottom: funnelPosts.length > 0 ? "0.75rem" : 0,
+          }}
+        >
+          ⭐ {isKo ? `${petName}의 오늘의 별자리 운세` : `${petName}'s daily horoscope`}
+        </div>
+      </Link>
+
+      {funnelPosts.map((post, i) => (
+        <Link
+          key={post.slug}
+          href={`/blog/${post.slug}`}
+          style={{
+            textDecoration: "none",
+            display: "flex",
+            alignItems: "center",
+            gap: "0.5rem",
+            padding: "0.5625rem 0",
+            borderTop: i > 0 ? "1px solid #F3F4F6" : undefined,
+            fontSize: "0.8125rem",
+            color: "#6B7280",
+          }}
+        >
+          <span style={{ flex: 1 }}>{isKo ? post.titleKo : post.title}</span>
+          <span style={{ color: "#9CA3AF", fontSize: "0.75rem", flexShrink: 0 }}>→</span>
+        </Link>
+      ))}
+    </div>
+    </>
   );
 }

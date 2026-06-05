@@ -158,6 +158,8 @@ export function HomePageClient({
             photoUrl={photoUrl}
             photoFile={photo}
             onReset={handleReset}
+            lang={lang}
+            recentPosts={recentPosts}
           />
         </div>
       </main>
