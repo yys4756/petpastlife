@@ -19,33 +19,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPost(slug);
   if (!post) return {};
 
-  const cookieStore = await cookies();
-  const lang: Lang = (cookieStore.get("NEXT_LOCALE")?.value as Lang) ?? "en";
-  const isKo = lang === "ko";
-
-  const title = isKo ? (post.titleKo ?? post.title) : post.title;
-  const description = isKo ? (post.excerptKo ?? post.excerpt) : post.excerpt;
-  const siteName = "Paw Labo";
   const url = `${BASE}/blog/${slug}`;
 
   return {
-    title: `${title} — ${siteName}`,
-    description,
-    alternates: {
-      canonical: url,
-    },
+    title: `${post.title} — Paw Labo`,
+    description: post.excerpt,
+    alternates: { canonical: url },
     openGraph: {
-      title,
-      description,
+      title: post.title,
+      description: post.excerpt,
       url,
       type: "article",
       publishedTime: new Date(post.date).toISOString(),
-      siteName,
+      siteName: "Paw Labo",
     },
     twitter: {
       card: "summary_large_image",
-      title,
-      description,
+      title: post.title,
+      description: post.excerpt,
     },
   };
 }

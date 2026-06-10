@@ -25,41 +25,27 @@ const italiana = Italiana({
 
 const BASE = "https://pawlabo.com";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const cookieStore = await cookies();
-  const lang: Lang = (cookieStore.get("NEXT_LOCALE")?.value as Lang) ?? "en";
-  const isKo = lang === "ko";
-
-  const title = isKo
-    ? "내 반려동물의 전생은? — AI로 알아보는 반려동물 전생"
-    : "Your Pet's Past Life — Discover who your pet was before";
-  const description = isKo
-    ? "반려동물 사진을 업로드하면 AI가 전생을 알려드려요. 무료, 즉시 확인 가능."
-    : "Upload a photo of your pet and reveal who they were in a past life. Powered by AI.";
-  const siteName = "Paw Labo";
-
-  return {
-    metadataBase: new URL(BASE),
-    title,
-    description,
-    alternates: {
-      canonical: BASE,
-    },
-    openGraph: {
-      title: isKo ? "내 반려동물의 전생은?" : "Your Pet's Past Life",
-      description: isKo ? "반려동물의 전생을 AI로 알아보세요." : "Who was your pet in a past life?",
-      type: "website",
-      url: BASE,
-      siteName,
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: isKo ? "내 반려동물의 전생은?" : "Your Pet's Past Life",
-      description: isKo ? "반려동물의 전생을 AI로 알아보세요." : "Who was your pet in a past life?",
-    },
-    robots: { index: true, follow: true },
-  };
-}
+export const metadata: Metadata = {
+  metadataBase: new URL(BASE),
+  title: {
+    default: "Paw Labo | Your Pet's Past Life — AI Powered, Free",
+    template: "%s | Paw Labo",
+  },
+  description: "Upload a photo of your pet and reveal who they were in a past life. AI readings for cats, dogs, and more. Free forever.",
+  openGraph: {
+    title: "Paw Labo — Your Pet's Past Life",
+    description: "Who was your pet in a past life? Find out in seconds with AI.",
+    type: "website",
+    url: BASE,
+    siteName: "Paw Labo",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Paw Labo — Your Pet's Past Life",
+    description: "Who was your pet in a past life? Find out in seconds with AI.",
+  },
+  robots: { index: true, follow: true },
+};
 
 export default async function RootLayout({
   children,

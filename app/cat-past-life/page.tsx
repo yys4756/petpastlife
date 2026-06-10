@@ -5,32 +5,24 @@ import type { Lang } from "@/lib/translations";
 
 const BASE = "https://pawlabo.com";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const cookieStore = await cookies();
-  const lang: Lang = (cookieStore.get("NEXT_LOCALE")?.value as Lang) ?? "en";
-  const isKo = lang === "ko";
-
-  const title = isKo
-    ? "고양이 전생 알아보기 | Paw Labo — AI로 밝히는 내 고양이의 전생"
-    : "Cat Past Life | Paw Labo — Discover Who Your Cat Was";
-  const description = isKo
-    ? "우리 고양이의 전생이 궁금하세요? 사진을 업로드하면 AI가 역사 속 전생 이야기를 30초 만에 알려드려요. 무료. Paw Labo."
-    : "Find out who your cat was in a past life. Upload a photo and our AI reveals their historical identity — free, instant, surprisingly specific. Paw Labo.";
-  const url = `${BASE}/cat-past-life`;
-
-  return {
-    title,
-    description,
-    keywords: isKo
-      ? ["고양이 전생", "고양이 전생 테스트", "AI 고양이", "고양이 과거생", "무료 고양이 운세"]
-      : ["cat past life", "cat past life test", "AI cat reading", "what was my cat in a past life", "free cat reading"],
-    alternates: {
-      canonical: url,
-    },
-    openGraph: { title, description, url, type: "website", siteName: "Paw Labo" },
-    twitter: { card: "summary_large_image", title, description },
-  };
-}
+export const metadata: Metadata = {
+  title: "Cat Past Life | Paw Labo — Discover Who Your Cat Was",
+  description: "Find out who your cat was in a past life. Upload a photo and our AI reveals their historical identity — free, instant, surprisingly specific. Paw Labo.",
+  keywords: ["cat past life", "cat past life test", "AI cat reading", "what was my cat in a past life", "free cat reading"],
+  alternates: { canonical: `${BASE}/cat-past-life` },
+  openGraph: {
+    title: "Cat Past Life | Paw Labo — Discover Who Your Cat Was",
+    description: "Find out who your cat was in a past life. Upload a photo and our AI reveals their historical identity — free, instant, surprisingly specific.",
+    url: `${BASE}/cat-past-life`,
+    type: "website",
+    siteName: "Paw Labo",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cat Past Life | Paw Labo — Discover Who Your Cat Was",
+    description: "Find out who your cat was in a past life. Upload a photo and our AI reveals their historical identity — free, instant, surprisingly specific.",
+  },
+};
 
 const faqEn = [
   {

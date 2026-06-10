@@ -5,32 +5,24 @@ import type { Lang } from "@/lib/translations";
 
 const BASE = "https://pawlabo.com";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const cookieStore = await cookies();
-  const lang: Lang = (cookieStore.get("NEXT_LOCALE")?.value as Lang) ?? "en";
-  const isKo = lang === "ko";
-
-  const title = isKo
-    ? "강아지 전생 알아보기 | Paw Labo — AI로 밝히는 내 강아지의 전생"
-    : "Dog Past Life | Paw Labo — Reveal Who Your Dog Was";
-  const description = isKo
-    ? "우리 강아지의 전생이 궁금하세요? 사진을 업로드하면 AI가 역사 속 전생 이야기를 30초 만에 알려드려요. 무료. Paw Labo."
-    : "Discover your dog's past life with AI. Upload a photo and reveal who they were — warrior, healer, noble, or wanderer. Free and instant. Paw Labo.";
-  const url = `${BASE}/dog-past-life`;
-
-  return {
-    title,
-    description,
-    keywords: isKo
-      ? ["강아지 전생", "강아지 전생 테스트", "AI 강아지", "강아지 과거생", "무료 강아지 운세"]
-      : ["dog past life", "dog past life test", "AI dog reading", "what was my dog in a past life", "free dog reading"],
-    alternates: {
-      canonical: url,
-    },
-    openGraph: { title, description, url, type: "website", siteName: "Paw Labo" },
-    twitter: { card: "summary_large_image", title, description },
-  };
-}
+export const metadata: Metadata = {
+  title: "Dog Past Life | Paw Labo — Reveal Who Your Dog Was",
+  description: "Discover your dog's past life with AI. Upload a photo and reveal who they were — warrior, healer, noble, or wanderer. Free and instant. Paw Labo.",
+  keywords: ["dog past life", "dog past life test", "AI dog reading", "what was my dog in a past life", "free dog reading"],
+  alternates: { canonical: `${BASE}/dog-past-life` },
+  openGraph: {
+    title: "Dog Past Life | Paw Labo — Reveal Who Your Dog Was",
+    description: "Discover your dog's past life with AI. Upload a photo and reveal who they were — warrior, healer, noble, or wanderer. Free and instant.",
+    url: `${BASE}/dog-past-life`,
+    type: "website",
+    siteName: "Paw Labo",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dog Past Life | Paw Labo — Reveal Who Your Dog Was",
+    description: "Discover your dog's past life with AI. Upload a photo and reveal who they were — warrior, healer, noble, or wanderer. Free and instant.",
+  },
+};
 
 const faqEn = [
   {

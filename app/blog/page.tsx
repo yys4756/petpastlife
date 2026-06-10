@@ -7,28 +7,23 @@ import { translations, type Lang } from "@/lib/translations";
 
 const BASE = "https://pawlabo.com";
 
-export async function generateMetadata(): Promise<Metadata> {
-  const cookieStore = await cookies();
-  const lang: Lang = (cookieStore.get("NEXT_LOCALE")?.value as Lang) ?? "en";
-  const isKo = lang === "ko";
-
-  const title = isKo
-    ? "Paw Labo 블로그 — 반려동물 전생, 행동, 별자리"
-    : "Paw Labo Blog — Pet Past Lives, Behavior & Horoscopes";
-  const description = isKo
-    ? "반려동물과 전생에 관한 이야기, 과학, 역사를 담은 블로그. Paw Labo."
-    : "Stories, science, and history about pets, past lives, and the ancient bond between animals and humans. Paw Labo.";
-
-  return {
-    title,
-    description,
-    alternates: {
-      canonical: `${BASE}/blog`,
-    },
-    openGraph: { title, description, url: `${BASE}/blog`, type: "website", siteName: "Paw Labo" },
-    twitter: { card: "summary_large_image", title, description },
-  };
-}
+export const metadata: Metadata = {
+  title: "Paw Labo Blog — Pet Past Lives, Behavior & Horoscopes",
+  description: "Stories, science, and history about pets, past lives, and the ancient bond between animals and humans. Paw Labo.",
+  alternates: { canonical: `${BASE}/blog` },
+  openGraph: {
+    title: "Paw Labo Blog — Pet Past Lives, Behavior & Horoscopes",
+    description: "Stories, science, and history about pets, past lives, and the ancient bond between animals and humans.",
+    url: `${BASE}/blog`,
+    type: "website",
+    siteName: "Paw Labo",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Paw Labo Blog — Pet Past Lives, Behavior & Horoscopes",
+    description: "Stories, science, and history about pets, past lives, and the ancient bond between animals and humans.",
+  },
+};
 
 export default async function BlogPage() {
   const cookieStore = await cookies();
