@@ -26,7 +26,6 @@ async function loadGoogleFont(family: string): Promise<ArrayBuffer> {
     },
   }).then((r) => r.text());
 
-  // truetype/opentype/woff 형식 우선
   const ttfMatch = css.match(
     /url\((https?:\/\/[^)]+)\)\s*format\(['"]?(truetype|opentype|woff)['"]?\)/,
   );
@@ -34,7 +33,6 @@ async function loadGoogleFont(family: string): Promise<ArrayBuffer> {
     return fetch(ttfMatch[1]).then((r) => r.arrayBuffer());
   }
 
-  // 폴백 — 어떤 url() 이든
   const anyMatch = css.match(/url\((https?:\/\/[^)]+)\)/);
   if (!anyMatch) {
     throw new Error(
@@ -77,6 +75,8 @@ export async function POST(req: NextRequest) {
     ]);
 
     const photoSrc = `data:${photoMime || "image/jpeg"};base64,${photoBase64}`;
+    // 카드에 표시할 Echoes — 최대 2개
+    const visibleEchoes = data.echoes.slice(0, 2);
 
     return new ImageResponse(
       (
@@ -84,11 +84,11 @@ export async function POST(req: NextRequest) {
           style={{
             width: "100%",
             height: "100%",
-            backgroundColor: "#2E3D34",
+            backgroundColor: "#1A2420",
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            padding: 50,
+            padding: 44,
             fontFamily: "Outfit",
           }}
         >
@@ -96,32 +96,32 @@ export async function POST(req: NextRequest) {
             style={{
               width: "100%",
               height: "100%",
-              backgroundColor: "white",
-              borderRadius: 48,
+              backgroundColor: "#FAFAF8",
+              borderRadius: 44,
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              padding: 70,
-              boxShadow: "0 30px 60px rgba(0,0,0,0.2)",
+              padding: "56px 64px 48px",
+              boxShadow: "0 32px 64px rgba(0,0,0,0.28)",
             }}
           >
-            {/* Pet portrait */}
+            {/* Pet portrait — 크게 */}
             <div
               style={{
-                width: 220,
-                height: 220,
-                borderRadius: 110,
+                width: 300,
+                height: 300,
+                borderRadius: 150,
                 overflow: "hidden",
                 display: "flex",
                 flexShrink: 0,
                 boxShadow:
-                  "0 0 0 8px white, 0 0 0 9px rgba(31,41,55,0.08), 0 8px 24px rgba(0,0,0,0.12)",
+                  "0 0 0 6px #FAFAF8, 0 0 0 10px #2E3D34, 0 12px 32px rgba(0,0,0,0.22)",
               }}
             >
               <img
                 src={photoSrc}
-                width={220}
-                height={220}
+                width={300}
+                height={300}
                 style={{ objectFit: "cover" }}
               />
             </div>
@@ -129,11 +129,11 @@ export async function POST(req: NextRequest) {
             {/* Eyebrow */}
             <div
               style={{
-                marginTop: 40,
-                fontSize: 20,
-                letterSpacing: 6,
+                marginTop: 28,
+                fontSize: 17,
+                letterSpacing: 5,
                 color: "#6B7280",
-                fontWeight: 600,
+                fontWeight: 700,
                 display: "flex",
               }}
             >
@@ -143,57 +143,129 @@ export async function POST(req: NextRequest) {
             {/* Character name */}
             <div
               style={{
-                marginTop: 22,
+                marginTop: 14,
                 fontFamily: "Italiana",
-                fontSize: 76,
-                color: "#1F2937",
+                fontSize: 68,
+                color: "#111827",
                 textAlign: "center",
                 lineHeight: 1.05,
-                maxWidth: 820,
+                maxWidth: 840,
                 display: "flex",
               }}
             >
               {data.character_name}
             </div>
 
-            {/* Title */}
+            {/* Title · Years · Location — 한 줄로 */}
             <div
               style={{
-                marginTop: 18,
-                fontSize: 30,
-                fontStyle: "italic",
+                marginTop: 12,
+                fontSize: 22,
                 color: "#6B7280",
                 textAlign: "center",
-                maxWidth: 800,
                 display: "flex",
+                gap: 10,
               }}
             >
-              {data.title}
-            </div>
-
-            {/* Years · Location */}
-            <div
-              style={{
-                marginTop: 18,
-                fontSize: 20,
-                letterSpacing: 3,
-                color: "#9CA3AF",
-                fontWeight: 600,
-                textAlign: "center",
-                display: "flex",
-              }}
-            >
-              {data.years} · {data.location.toUpperCase()}
+              <span style={{ display: "flex", fontStyle: "italic" }}>{data.title}</span>
+              <span style={{ display: "flex", color: "#D1D5DB" }}>·</span>
+              <span style={{ display: "flex", letterSpacing: 1, fontWeight: 600, color: "#9CA3AF" }}>
+                {data.years}
+              </span>
             </div>
 
             {/* Divider */}
             <div
               style={{
-                width: 80,
-                height: 1,
+                width: 60,
+                height: 2,
+                backgroundColor: "#2E3D34",
+                marginTop: 28,
+                marginBottom: 24,
+                display: "flex",
+              }}
+            />
+
+            {/* Echoes section */}
+            <div
+              style={{
+                fontSize: 14,
+                letterSpacing: 4,
+                color: "#9CA3AF",
+                fontWeight: 700,
+                marginBottom: 16,
+                display: "flex",
+              }}
+            >
+              ECHOES IN THIS LIFE
+            </div>
+
+            {visibleEchoes.map((echo, i) => (
+              <div
+                key={i}
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  alignItems: "flex-start",
+                  width: "100%",
+                  marginBottom: i < visibleEchoes.length - 1 ? 12 : 0,
+                  gap: 14,
+                }}
+              >
+                {/* photo detail */}
+                <div
+                  style={{
+                    display: "flex",
+                    backgroundColor: "#F3F4F6",
+                    borderRadius: 10,
+                    padding: "8px 14px",
+                    fontSize: 21,
+                    color: "#374151",
+                    fontWeight: 600,
+                    flex: "0 1 auto",
+                    maxWidth: "44%",
+                    lineHeight: 1.3,
+                  }}
+                >
+                  {echo.photo_detail}
+                </div>
+                {/* arrow */}
+                <div
+                  style={{
+                    display: "flex",
+                    fontSize: 26,
+                    color: "#2E3D34",
+                    fontWeight: 700,
+                    alignSelf: "center",
+                    flexShrink: 0,
+                  }}
+                >
+                  →
+                </div>
+                {/* past parallel */}
+                <div
+                  style={{
+                    display: "flex",
+                    fontSize: 21,
+                    color: "#374151",
+                    lineHeight: 1.35,
+                    flex: 1,
+                    alignSelf: "center",
+                  }}
+                >
+                  {echo.past_parallel}
+                </div>
+              </div>
+            ))}
+
+            {/* Divider */}
+            <div
+              style={{
+                width: 60,
+                height: 2,
                 backgroundColor: "#E5E7EB",
-                marginTop: 36,
-                marginBottom: 36,
+                marginTop: 24,
+                marginBottom: 20,
                 display: "flex",
               }}
             />
@@ -202,7 +274,7 @@ export async function POST(req: NextRequest) {
             <div
               style={{
                 fontFamily: "Italiana",
-                fontSize: 36,
+                fontSize: 32,
                 color: "#1F2937",
                 textAlign: "center",
                 lineHeight: 1.35,
@@ -213,36 +285,21 @@ export async function POST(req: NextRequest) {
               {`"${data.share_line}"`}
             </div>
 
-            {/* Hashtags */}
-            <div
-              style={{
-                marginTop: 26,
-                fontSize: 22,
-                color: "#6B1F2C",
-                fontWeight: 500,
-                display: "flex",
-                gap: 18,
-              }}
-            >
-              {data.hashtags.map((tag, i) => (
-                <span key={i} style={{ display: "flex" }}>
-                  #{tag}
-                </span>
-              ))}
-            </div>
-
-            {/* Watermark */}
+            {/* CTA watermark — 굵고 크게 */}
             <div
               style={{
                 marginTop: "auto",
-                fontSize: 22,
-                color: "#9CA3AF",
-                letterSpacing: 3,
-                fontWeight: 500,
+                fontSize: 20,
+                color: "#2E3D34",
+                letterSpacing: 2,
+                fontWeight: 700,
                 display: "flex",
+                gap: 8,
+                alignItems: "center",
               }}
             >
-              pawlabo.com
+              <span style={{ display: "flex" }}>→</span>
+              <span style={{ display: "flex" }}>pawlabo.com</span>
             </div>
           </div>
         </div>
