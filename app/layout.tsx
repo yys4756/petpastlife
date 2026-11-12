@@ -45,6 +45,7 @@ export const metadata: Metadata = {
     description: "Who was your pet in a past life? Find out in seconds with AI.",
   },
   robots: { index: true, follow: true },
+  other: { "google-adsense-account": "ca-pub-2305649699543282" },
 };
 
 export default async function RootLayout({
